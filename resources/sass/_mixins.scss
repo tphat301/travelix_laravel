@@ -1,0 +1,37 @@
+@mixin sizingDev ($prop, $location1:"", $location2:"",) {
+    display: $prop;
+    justify-content: $location1;
+    align-items: $location2;
+}
+
+@mixin pseudoDev ($prop, $content:"" ,$top:"", $bottom:"" ,$left:"" ,$right:"", $transformX:"", $transformY:"" ) {
+    position: $prop;
+    
+    @if $content !="" {
+        content: $content;
+    } 
+
+    @if $bottom !="" {
+        bottom: $bottom;
+    } 
+
+    @if $top !="" {
+        top: $top;
+    } 
+
+    @if $left !="" {
+        left: $left;
+    } 
+
+    @if $right !="" {
+        right: $right;
+    } 
+
+    @if $transformX !="" {
+        transform: translateX($transformX);
+    } 
+    
+    @if $transformY !="" {
+        transform: translateY($transformY);
+    } 
+}

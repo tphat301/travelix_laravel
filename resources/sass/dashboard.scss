@@ -1,0 +1,12 @@
+@import "./variables";
+@import "./mixins";
+@import "./base";
+
+// DASHBOARD
+
+.chart {
+        width: 100%;
+        padding-top: 24px;
+}
+
+// sass resources/sass/dashboard.scss public/backend/css/dashboard.css -w

@@ -1,0 +1,58 @@
+@import "./variables";
+@import "./mixins";
+@import "./base";
+
+.card__btn--update,
+.card__action {
+    background-color: #3926e7;
+    transition: all .4s ease-in-out;
+}
+
+.card__btn--update:hover,
+.card__action:hover {
+    background-color: #9e6fcf;
+}
+
+.card__form {
+    padding: 12px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.card__username {
+    background: #eaeaea;
+    padding: 8px 12px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.card__file2,
+.card__file1,
+.card__file {
+    margin-top: 12px;
+}
+
+.card__img2,
+.card__img1,
+.card__img {
+    max-width: 265px;
+    height: 265px;
+    object-fit: cover;
+}
+
+.drag-over {
+    border-color: red !important;
+    color: red !important;
+}
+
+.preview-img {
+    max-width: 150px;
+    margin: 0 1em 1em 0;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+
+// sass resources/sass/user.scss public/backend/css/user.css -w

@@ -1,0 +1,10 @@
+<script src="{{ asset('public/frontend/js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('public/frontend/css/bootstrap4/popper.js') }}"></script>
+<script src="{{ asset('public/frontend/css/bootstrap4/bootstrap.min.js') }}"></script>
+<script src="{{ asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
+<script src="{{ asset('public/frontend/plugins/easing/easing.js') }}"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="{{ asset('public/frontend/js/custom.js') }}"></script>
+<script src="{{ asset('public/frontend/js/func.js') }}"></script>
+<script src="{{ asset('public/frontend/js/jsp.js') }}"></script>
+<script src="{{ asset('public/frontend/js/app.js') }}"></script>

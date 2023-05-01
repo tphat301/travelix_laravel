@@ -74,7 +74,7 @@ class AdminSlideshowController extends Controller
                         return redirect('admin/slideshow/create')->with('danger', 'File tải lên đã vượt quá 25MB');
                     } else {
                         $file->move('public/backend/uploads', $nameFile);
-                        $photo = 'public/backend/uploads/' . $nameFile;
+                        $photo = $nameFile;
                     }
                 }
             } else {
@@ -108,7 +108,7 @@ class AdminSlideshowController extends Controller
                         return redirect('admin/slideshow/create')->with('danger', 'File tải lên đã vượt quá 25MB');
                     } else {
                         $file->move('public/backend/uploads', $nameFile);
-                        $photo = 'public/backend/uploads/' . $nameFile;
+                        $photo = $nameFile;
                     }
                 }
             } else {

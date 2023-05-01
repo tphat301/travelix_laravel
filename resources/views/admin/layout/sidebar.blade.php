@@ -16,6 +16,9 @@
                 <span>{{ Auth::user()->username != null ? Auth::user()->username : '' }}</span>
             </div>
         </div>
+
+
+            {{-- Module DASHBOARD --}}
         <div class="navbar-nav w-100">
             <a href="{{ url('/dashboard') }}" class="nav-item nav-link {{ session('module_active') == 'dashboard' ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <div class="nav-item dropdown">
@@ -24,6 +27,10 @@
                     <a href="{{ url('admin/order/index') }}" class="dropdown-item">{{ __('List order') }}</a>
                 </div>
             </div>
+
+
+
+            {{-- Module COUPON --}}
             <div class="nav-item dropdown">
                 <a href="{{ url('admin/coupon/index') }}" class="nav-link {{ session('module_active') == 'coupon' ? 'active' : '' }} dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>{{ __('Coupon') }}</a>
                 <div class="dropdown-menu bg-transparent border-0">
@@ -31,6 +38,9 @@
                     <a href="{{ url('admin/coupon/create') }}" class="dropdown-item">{{ __('Create coupon') }}</a>
                 </div>
             </div>
+            
+
+            {{-- Module SERVICE --}}
             <div class="nav-item dropdown">
                 <a href="{ url('admin/service/index') }}" class="nav-link {{ session('module_active') == 'service' ? 'active' : '' }} dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>{{ __('Service') }}</a>
                 <div class="dropdown-menu bg-transparent border-0">
@@ -38,6 +48,9 @@
                     <a href="{{ url('admin/service/index') }}" class="dropdown-item">{{ __('List service') }}</a>
                 </div>
             </div>
+
+
+            {{-- Module SLIDE --}}
             <div class="nav-item dropdown">
                 <a href="{{ url('admin/slideshow/index') }}" class="nav-link {{ session('module_active') == 'slideshow' ? 'active' : '' }} dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>{{ __('Slideshow') }}</a>
                 <div class="dropdown-menu bg-transparent border-0">
@@ -45,18 +58,42 @@
                     <a href="{{ url('admin/slideshow/index') }}" class="dropdown-item">{{ __('List slideshow') }}</a>
                 </div>
             </div>
+
+
+            {{-- Module SLOGAN --}}
             <div class="nav-item dropdown">
                 <a href="{{ url('admin/slogan/create') }}" class="nav-link {{ session('module_active') == 'slogan' ? 'active' : '' }} dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Slogan</a>
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="{{ url('admin/slogan/create') }}" class="dropdown-item">{{ __('Create slogan') }}</a>
                 </div>
             </div>
+
+
+            {{-- Module LINKS --}}
+            <div class="nav-item dropdown">
+                <a href="{{ url('admin/link/create') }}" class="nav-link {{ session('module_active') == 'link' ? 'active' : '' }} dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Links</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{{ url('admin/link/index') }}" class="dropdown-item">Danh sách link</a>
+                    <a href="{{ url('admin/link/create') }}" class="dropdown-item">Thêm link</a>
+                </div>
+            </div>
+
+            {{-- Module USERS --}}
             <div class="nav-item dropdown">
                 <a href="{{ url('admin/user/index') }}" class="nav-link {{ session('module_active') == 'user' ? 'active' : '' }} dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>{{ __('Member') }}</a>
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="{{ url('admin/user/create') }}" class="dropdown-item">{{ __('Create member') }}</a>
                     <a href="{{ url('admin/user/index') }}" class="dropdown-item">{{ __('List member') }}</a>
                     <a href="{{ url('admin/user/edit/'.Auth::user()->id) }}" class="dropdown-item">{{ __('Change password member') }}</a>
+                </div>
+            </div>
+
+
+            <div class="nav-item dropdown">
+                <a href="{ url('admin/setting/create') }}" class="nav-link {{ session('module_active') == 'setting' ? 'active' : '' }} dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Thiết lập chung</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{{ url('admin/setting/create') }}" class="dropdown-item">Thiết lập</a>
+                    {{-- <a href="{{ url('admin/service/index') }}" class="dropdown-item">{{ __('List service') }}</a> --}}
                 </div>
             </div>
         </div>

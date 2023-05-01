@@ -7,7 +7,7 @@
             @foreach ($slideshows as $k => $v)
                 <!-- Slider Item -->
                 <div class="owl-item home_slider_item">
-                    <div onclick="window.location.href='{{ asset($v->link) }}'" class="home_slider_background" style="background-image:url({{ asset($v->photo) }}); cursor:pointer"></div>
+                    <div onclick="window.location.href='{{ asset($v->link) }}'" class="home_slider_background" style="background-image:url({{ asset('public/backend/uploads/'.$v->photo) }}); cursor:pointer"></div>
                     <div class="home_slider_content text-center">
                         <div class="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
                             <h1>{{ substr($v->name, 0, 10) }}</h1>

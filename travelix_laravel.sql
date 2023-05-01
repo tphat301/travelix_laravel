@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th4 30, 2023 lúc 07:09 PM
+-- Thời gian đã tạo: Th5 01, 2023 lúc 06:16 PM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 7.4.33
 
@@ -990,6 +990,13 @@ CREATE TABLE `orders` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `orders`
+--
+
+INSERT INTO `orders` (`id`, `fullname`, `code`, `bank`, `status`, `email`, `address`, `phone`, `total`, `type`, `notes`, `options`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(3, 'Đỗ Lâm Thành Phát', '#TMHE', 'NCB', 'active', 'dolamthanhphat@gmail.com', 'TPHCM', '0704138356', '15990000', NULL, 'Giao sớm nhất có thể', '{\"b9d75f3dd7da9dfd5edba981a605cee0\":{\"rowId\":\"b9d75f3dd7da9dfd5edba981a605cee0\",\"id\":5,\"name\":\"Mauritius\",\"qty\":1,\"price\":15990000,\"options\":{\"photo\":\"Mauritius.jpg\",\"brand\":\"Travelix\",\"code\":\"#T0001\"},\"tax\":\"0.00\",\"isSaved\":false,\"subtotal\":\"15990000.00\"}}', NULL, '2023-05-01 07:29:30', '2023-05-01 07:29:30');
+
 -- --------------------------------------------------------
 
 --
@@ -1019,7 +1026,13 @@ CREATE TABLE `pages` (
 --
 
 INSERT INTO `pages` (`id`, `name`, `photo1`, `photo2`, `photo3`, `photo4`, `slogan`, `slug`, `status`, `type`, `desc`, `content`, `options`, `created_at`, `updated_at`) VALUES
-(2, NULL, NULL, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti vitae cursus mi hendre', 'lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-nullam-eu-convallis-tortor-suspendisse-potenti-vitae-cursus-mi-hendre', 'active', 'slogan', NULL, NULL, NULL, '2023-04-30 06:39:45', '2023-04-30 08:29:11');
+(2, NULL, NULL, NULL, NULL, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti vitae cursus mi hendre', 'lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-nullam-eu-convallis-tortor-suspendisse-potenti-vitae-cursus-mi-hendre', 'active', 'slogan', NULL, NULL, NULL, '2023-04-30 06:39:45', '2023-04-30 08:29:11'),
+(5, 'https://www.pinterest.com', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'link', NULL, NULL, NULL, '2023-05-01 01:42:45', '2023-05-01 01:43:47'),
+(6, 'https://www.facebook.com/', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'link', NULL, NULL, NULL, '2023-05-01 01:44:13', '2023-05-01 01:44:13'),
+(7, 'https://twitter.com/', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'link', NULL, NULL, NULL, '2023-05-01 01:44:39', '2023-05-01 01:44:39'),
+(8, 'https://dribbble.com/', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'link', NULL, NULL, NULL, '2023-05-01 01:45:18', '2023-05-01 01:53:52'),
+(9, 'https://www.behance.net/', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'link', NULL, NULL, NULL, '2023-05-01 01:45:23', '2023-05-01 01:54:11'),
+(10, 'https://www.linkedin.com/', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'link', NULL, NULL, NULL, '2023-05-01 01:45:33', '2023-05-01 01:54:32');
 
 -- --------------------------------------------------------
 
@@ -1077,8 +1090,8 @@ CREATE TABLE `photos` (
 --
 
 INSERT INTO `photos` (`id`, `name`, `photo`, `link`, `type`, `status`, `desc`, `content`, `options`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Discovery travelix', 'public/backend/uploads/slideshow.jpg', 'https://www.google.com/', 'slideshow', 'active', NULL, NULL, NULL, NULL, '2023-04-30 04:31:42', '2023-04-30 06:22:45'),
-(6, 'Discovery travelix 2', 'public/backend/uploads/slideshow.jpg', 'https://www.google.com/', 'slideshow', 'active', NULL, NULL, NULL, NULL, '2023-04-30 05:29:43', '2023-04-30 05:48:12');
+(8, 'Discovery travelix', 'slideshow.jpg', 'http://google.com/', 'slideshow', 'active', NULL, NULL, NULL, NULL, '2023-05-01 00:25:31', '2023-05-01 00:25:31'),
+(9, 'Discovery travelix(3)', 'slideshow.jpg', 'http://google.com/', 'slideshow', 'active', NULL, NULL, NULL, NULL, '2023-05-01 00:26:44', '2023-05-01 00:26:44');
 
 -- --------------------------------------------------------
 
@@ -1139,9 +1152,9 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `parent_id`, `name`, `brand`, `photo`, `photo1`, `photo2`, `slug`, `code`, `type`, `status`, `state`, `qty`, `desc`, `content`, `options`, `price`, `price_old`, `discount`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(2, NULL, 'Mauritius', 'Travelix', 'public/backend/uploads/Mauritius.jpg', '', '', 'mauritius', '#T0001', 'dich-vu', 'active', 'noibat', '10', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit</p>', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit</p>', NULL, '34000000', '36000000', '6', NULL, '2023-04-30 07:06:49', '2023-04-30 09:53:09'),
-(3, NULL, 'Greece', 'Travelix', 'public/backend/uploads/Greece.jpg', '', '', 'greece', '#T0001', 'dich-vu', 'active', 'noibat', '10', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit</p>', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit</p>', NULL, '12000000', '33000000', '64', NULL, '2023-04-30 07:22:10', '2023-04-30 09:52:14'),
-(4, NULL, 'Scotland', 'Travelix', 'public/backend/uploads/Scotland.jpg', '', '', 'scotland', '#T0001', 'dich-vu', 'active', 'noibat', '10', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit</p>', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit</p>', NULL, '27000000', '36000000', '25', NULL, '2023-04-30 07:22:37', '2023-04-30 09:53:11');
+(5, NULL, 'Mauritius', 'Travelix', 'Mauritius.jpg', '', '', 'mauritius', '#T0001', 'dich-vu', 'active', 'noibat', '10', '<div>\r\n<div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo praesentium accusantium voluptates eligendi consequatur labore eos qui distinctio assumenda cumque facere ea repudiandae corporis necessitatibus sequi tenetur, maiores accusamus!</div>\r\n</div>\r\n<div class=\"ddict_btn\" style=\"top: -18px; left: 57.6875px;\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/logo/48.png\" /></div>', '<div>\r\n<div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo praesentium accusantium voluptates eligendi consequatur labore eos qui distinctio assumenda cumque facere ea repudiandae corporis necessitatibus sequi tenetur, maiores accusamus!</div>\r\n</div>', NULL, '15990000', '59900000', '73', NULL, '2023-05-01 00:21:02', '2023-05-01 00:23:21'),
+(6, NULL, 'Mauritius(9)', 'Travelix', 'Mauritius.jpg', '', '', 'mauritius', '#T0001', 'dich-vu', 'active', 'noibat', '10', '<div>\r\n<div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo praesentium accusantium voluptates eligendi consequatur labore eos qui distinctio assumenda cumque facere ea repudiandae corporis necessitatibus sequi tenetur, maiores accusamus!</div>\r\n</div>\r\n<div class=\"ddict_btn\" style=\"top: -18px; left: 57.6875px;\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/logo/48.png\" /></div>', '<div>\r\n<div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo praesentium accusantium voluptates eligendi consequatur labore eos qui distinctio assumenda cumque facere ea repudiandae corporis necessitatibus sequi tenetur, maiores accusamus!</div>\r\n</div>', NULL, '15990000', '59900000', '73', NULL, '2023-05-01 00:39:12', '2023-05-01 00:39:23'),
+(7, NULL, 'Mauritius(9)(10)', 'Travelix', 'Mauritius.jpg', '', '', 'mauritius', '#T0001', 'dich-vu', 'active', 'noibat', '10', '<div>\r\n<div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo praesentium accusantium voluptates eligendi consequatur labore eos qui distinctio assumenda cumque facere ea repudiandae corporis necessitatibus sequi tenetur, maiores accusamus!</div>\r\n</div>\r\n<div class=\"ddict_btn\" style=\"top: -18px; left: 57.6875px;\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/logo/48.png\" /></div>', '<div>\r\n<div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo praesentium accusantium voluptates eligendi consequatur labore eos qui distinctio assumenda cumque facere ea repudiandae corporis necessitatibus sequi tenetur, maiores accusamus!</div>\r\n</div>', NULL, '15990000', '59900000', '73', NULL, '2023-05-01 00:39:19', '2023-05-01 00:39:22');
 
 -- --------------------------------------------------------
 
@@ -1158,6 +1171,13 @@ CREATE TABLE `settings` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `settings`
+--
+
+INSERT INTO `settings` (`id`, `name`, `address`, `copyright`, `options`, `created_at`, `updated_at`) VALUES
+(5, 'Travelix', 'ấp Bình Tiền 1, xã Đức Hòa Hạ, Đức Hòa - Long An', 'Travelix', '{\"_token\":\"mUA1g6bomHsRhtN4Ybt0q0ToAJryPixWUxDY4OWT\",\"zalo\":\"https:\\/\\/id.zalo.me\\/\",\"call\":\"0987564321\",\"hotline\":\"0987566222\",\"messager\":\"https:\\/\\/www.messenger.com\",\"map\":\"\\u003Ciframe src=\\\"https:\\/\\/www.google.com\\/maps\\/embed?pb=!1m18!1m12!1m3!1d3918.3598228814017!2d106.61753057592843!3d10.86021295764087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752a18605f989d%3A0x3addffb82ce344e!2zcTEyLzM2NCBUw7QgS8O9LCBUw6JuIENow6FuaCBIaeG7h3AsIFF14bqtbiAxMiwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1682932352244!5m2!1svi!2s\\\" width=\\\"100%\\\" height=\\\"450\\\" style=\\\"border:0;\\\" allowfullscreen=\\\"\\\" loading=\\\"lazy\\\" referrerpolicy=\\\"no-referrer-when-downgrade\\\"\\u003E\\u003C\\/iframe\\u003E\",\"fanpage\":\"\\u003Ciframe src=\\\"https:\\/\\/www.facebook.com\\/plugins\\/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100091970813430&tabs=timeline&width=300&height=359&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId=874969367000309\\\" width=\\\"300\\\" height=\\\"359\\\" style=\\\"border:none;overflow:hidden\\\" scrolling=\\\"no\\\" frameborder=\\\"0\\\" allowfullscreen=\\\"true\\\" allow=\\\"autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share\\\"\\u003E\\u003C\\/iframe\\u003E\",\"worktime\":\"8:00 - 17:00\"}', '2023-05-01 08:45:59', '2023-05-01 08:45:59');
 
 -- --------------------------------------------------------
 
@@ -1230,6 +1250,13 @@ CREATE TABLE `vnpays` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `vnpays`
+--
+
+INSERT INTO `vnpays` (`id`, `fullname`, `bank`, `code`, `total`, `status`, `options`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(2, 'Đỗ Lâm Thành Phát', 'NCB', '#TMHE', '1599000000', 'active', '{\"b9d75f3dd7da9dfd5edba981a605cee0\":{\"rowId\":\"b9d75f3dd7da9dfd5edba981a605cee0\",\"id\":5,\"name\":\"Mauritius\",\"qty\":1,\"price\":15990000,\"options\":{\"photo\":\"Mauritius.jpg\",\"brand\":\"Travelix\",\"code\":\"#T0001\"},\"tax\":\"0.00\",\"isSaved\":false,\"subtotal\":\"15990000.00\"}}', NULL, '2023-05-01 07:29:54', '2023-05-01 07:29:54');
 
 -- --------------------------------------------------------
 
@@ -12593,13 +12620,13 @@ ALTER TABLE `newsletters`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`
@@ -12611,7 +12638,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT cho bảng `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT cho bảng `posts`
@@ -12623,13 +12650,13 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT cho bảng `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
@@ -12647,7 +12674,7 @@ ALTER TABLE `videos`
 -- AUTO_INCREMENT cho bảng `vnpays`
 --
 ALTER TABLE `vnpays`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

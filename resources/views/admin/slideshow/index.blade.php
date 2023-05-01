@@ -68,7 +68,7 @@
                                 <td>
                                     @if ($v->photo)
                                         <a href="{{ route('admin.slideshow.edit', $v->id) }}">
-                                            <img class="thumbs rounded" src="{{ asset($v->photo) }}" alt="">
+                                            <img class="thumbs rounded" src="{{ asset('public/backend/uploads/'.$v->photo) }}" alt="">
                                         </a>
                                     @else
                                         <a href="{{ route('admin.slideshow.edit', $v->id) }}">

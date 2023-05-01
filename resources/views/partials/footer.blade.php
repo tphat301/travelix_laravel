@@ -137,3 +137,7 @@
         </div>
     </div>
 </div>
+
+@include('partials.map')
+
+@include('partials.social')

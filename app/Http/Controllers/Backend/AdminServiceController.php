@@ -81,7 +81,7 @@ class AdminServiceController extends Controller
                         return redirect('admin/service/create')->with('danger', 'File tải lên đã vượt quá 25MB');
                     } else {
                         $file->move('public/backend/uploads', $nameFile);
-                        $photo = 'public/backend/uploads/' . $nameFile;
+                        $photo = $nameFile;
                     }
                 }
             } else {
@@ -121,7 +121,7 @@ class AdminServiceController extends Controller
                         return redirect('admin/service/create')->with('danger', 'File tải lên đã vượt quá 25MB');
                     } else {
                         $file2->move('public/backend/uploads', $nameFile2);
-                        $photo2 = 'public/backend/uploads/' . $nameFile2;
+                        $photo2 = $nameFile2;
                     }
                 }
             } else {
@@ -212,7 +212,7 @@ class AdminServiceController extends Controller
                         return redirect("admin/service/edit/{$id}")->with('danger', 'File tải lên đã vượt quá 25MB');
                     } else {
                         $file->move('public/backend/uploads', $nameFile);
-                        $photo = 'public/backend/uploads/' . $nameFile;
+                        $photo = $nameFile;
                     }
                 }
             } else {
@@ -232,7 +232,7 @@ class AdminServiceController extends Controller
                         return redirect("admin/service/edit/{$id}")->with('danger', 'File tải lên đã vượt quá 25MB');
                     } else {
                         $file1->move('public/backend/uploads', $nameFile1);
-                        $photo1 = 'public/backend/uploads/' . $nameFile1;
+                        $photo1 = $nameFile1;
                     }
                 }
             } else {
@@ -252,7 +252,7 @@ class AdminServiceController extends Controller
                         return redirect("admin/service/edit/{$id}")->with('danger', 'File tải lên đã vượt quá 25MB');
                     } else {
                         $file2->move('public/backend/uploads', $nameFile2);
-                        $photo2 = 'public/backend/uploads/' . $nameFile2;
+                        $photo2 = $nameFile2;
                     }
                 }
             } else {

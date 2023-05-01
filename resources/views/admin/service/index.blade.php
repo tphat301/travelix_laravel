@@ -47,7 +47,6 @@
                         <th scope="col">Giảm</th>
                         <th scope="col">Thương hiệu</th>
                         <th scope="col">Nổi bật</th>
-                        {{-- <th scope="col">Hiển thị</th> --}}
                         <th scope="col">Trạng thái</th>
                         <th scope="col">Thời gian tạo</th>
                         <th scope="col">Thao tác</th>
@@ -72,7 +71,7 @@
                                 <td>
                                     @if ($v->photo)
                                         <a href="{{ route('admin.service.edit', $v->id) }}">
-                                            <img class="thumbs rounded" src="{{ asset($v->photo) }}" alt="">
+                                            <img class="thumbs rounded" src="{{ asset('public/backend/uploads/'.$v->photo) }}" alt="">
                                         </a>
                                     @else
                                         <a href="{{ route('admin.service.edit', $v->id) }}">

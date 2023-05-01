@@ -6,10 +6,12 @@
     @include("partials.css")
 </head>
 
-<body>
+<body class="preloading">
+	<!-- Spinner Start -->
+        <div class="bx_loader"><div class="loader"></div></div>
+    <!-- Spinner End -->
 
 <div class="super_container">
-	
 	@include('partials.header')
 
 	{{-- @include('partials.menu') --}}

@@ -281,4 +281,45 @@ OwlPage ();
             });
         });
     }
+
+
+    // Search Index
+    if(isExist($('.search_content_input'))) {
+        $('.search_content_input').keyup(function() {
+            $('#result__search').html('');
+            let search = $('.search_content_input').val();
+            if(search != "") {
+                var expression = new RegExp(search, 'i');
+                $.getJSON('/travelix_laravel/public/json/search.json',
+                    function (data) {
+                        $.each(data, function(key, value) {
+                            if(value.title != '' || value.desc != '') {
+                                $('#result__search').css("display", "block");
+                                $('#result__search').append(
+                                    `<li class="d-flex p-2 mb-2">
+                                        <img class="img__search mr-3" width="40" height="40" src="http://localhost/travelix_laravel/public/backend/uploads/${value.photo}">
+                                        <a href="http://localhost/travelix_laravel/${value.type}/${value.id}" class="desc__search">
+                                            ${value.name}
+                                        </a>
+                                    </li>`);
+                            } else {
+                                $('#result__search').css("display", "none");
+                            }
+                        });
+                    }
+                );
+            }
+        });
+    }
+
+    /* Chat FanPage */
+    chatFanpage();
+
+    /* Back To Top */
+    goTop();
+
+
+    /* Preloading */
+    preLoading();
+
 });

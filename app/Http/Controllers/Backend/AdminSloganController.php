@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 
 class AdminSloganController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(function ($request, $next) {
+            session(["module_active" => "slogan"]);
+            return $next($request);
+        });
+    }
+
     public function index()
     {
         $slogan = Page::where('status', 'active')->where('type', 'slogan')->first();

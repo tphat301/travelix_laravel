@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminCouponController;
+use App\Http\Controllers\Backend\AdminLinkController;
 use App\Http\Controllers\Backend\AdminOrderController;
 use App\Http\Controllers\Backend\AdminServiceController;
+use App\Http\Controllers\Backend\AdminSettingController;
 use App\Http\Controllers\Backend\AdminSlideshowController;
 use App\Http\Controllers\Backend\AdminSloganController;
 use App\Http\Controllers\Backend\AdminUserController;
@@ -90,8 +92,6 @@ Route::get('/order/vnpay/checkout', [PaymentController::class, 'checkout']);
 /* [POST] Route Momo store */
 Route::post('/order/momo/store', [MomoController::class, 'store']);
 Route::get('/order/momo/checkout', [MomoController::class, 'checkout']);
-
-
 
 
 
@@ -197,6 +197,28 @@ Route::middleware(['auth', 'password.confirm', 'CheckUserLogin'])->group(functio
     Route::post('admin/slogan/store/{slug?}', [AdminSloganController::class, 'store']);
     /* [GET] edit */
     Route::get('admin/slogan/edit/{slug}', [AdminSloganController::class, 'edit'])->name('admin.slogan.edit');
+
+    // ROUTE ADMIN LINK
+    /* [GET] index */
+    Route::get('admin/link/index', [AdminLinkController::class, 'index']);
+    /* [GET] create */
+    Route::get('admin/link/create', [AdminLinkController::class, 'create']);
+    /* [POST] store */
+    Route::post('admin/link/store/{id?}', [AdminLinkController::class, 'store']);
+    /* [GET] edit */
+    Route::get('admin/link/edit/{id}', [AdminLinkController::class, 'edit'])->name('admin.link.edit');
+    /* [GET] delete */
+    Route::get('admin/link/delete/{id}', [AdminLinkController::class, 'delete'])->name('admin.link.delete');
+
+    // ROUTE ADMIN SETTING
+    /* [GET] index */
+    Route::get('admin/setting/index', [AdminSettingController::class, 'index']);
+    /* [GET] create */
+    Route::get('admin/setting/create', [AdminSettingController::class, 'create']);
+    /* [POST] create */
+    Route::post('admin/setting/store/{id?}', [AdminSettingController::class, 'store']);
+    /* [GET] edit */
+    Route::get('admin/setting/edit/{id}', [AdminSettingController::class, 'edit'])->name('admin.slogan.edit');
 });
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

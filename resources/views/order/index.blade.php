@@ -44,7 +44,7 @@
                     @endphp
                         <tr class="cart__main-{{ $v->rowId }}">
                             <th scope="row">{{ $count }}</th>
-                            <td><img class="rounded" src="{{ asset($v->options->photo) }}" alt="{{ $v->name }}" style="width: 90px"></td>
+                            <td><img class="rounded" src="{{ asset("public/backend/uploads/".$v->options->photo) }}" alt="{{ $v->name }}" style="width: 90px"></td>
                             <td>{{ $v->name }}</td>
                             <td>{{ $v->options->code }}</td>
                             <td>{{ $v->options->brand }}</td>

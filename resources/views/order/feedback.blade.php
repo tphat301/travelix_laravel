@@ -3,7 +3,7 @@
 @section("title", "Đặt hàng thành công")
 
 @section("content")
-<div class="container mt-3">
+<div class="container bx__cart">
      @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <i class="fa fa-exclamation-circle me-2"></i><strong>{{ session('success') }}</strong>
@@ -65,7 +65,7 @@
                         @endphp
                             <tr>
                                 <th scope="row">{{ $count }}</th>
-                                <td><img class="rounded" src="{{ asset($v->options->photo) }}" alt="{{ $v->name }}" style="width: 90px"></td>
+                                <td><img class="rounded" src="{{ asset('public/backend/uploads/'.$v->options->photo) }}" alt="{{ $v->name }}" style="width: 90px"></td>
                                 <td>{{ $v->name }}</td>
                                 <td>{{ $v->options->code }}</td>
                                 <td>{{ $v->options->brand }}</td>

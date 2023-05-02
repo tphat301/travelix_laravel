@@ -78,8 +78,8 @@
                 <span class="d-none d-lg-inline-flex">{{ Auth::user()->name !=null ? Auth::user()->name : '' }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
-                <a href="#" class="dropdown-item">My Profile</a>
-                <a href="#" class="dropdown-item">Settings</a>
+                <a href="{{ url('admin/user/index') }}" class="dropdown-item">Thông tin user</a>
+                <a href="{{ url('admin/setting/create') }}" class="dropdown-item">Cài đặt</a>
                 <a href="{{ route('logout') }}" class="dropdown-item">{{ __('Logout') }}</a>
             </div>
         </div>

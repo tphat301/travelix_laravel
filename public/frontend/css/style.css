@@ -362,7 +362,7 @@ section {
 }
 
 .user_box_login {
-  margin-right: 15px;
+  margin-right: 0;
 }
 
 .main_nav_col {
@@ -1172,7 +1172,7 @@ section {
   transform: translateX(-50%);
 }
 
-.intro_center h1 {
+.intro_center .name_service {
   font-size: 38px;
   font-weight: 700;
   color: #fff;
@@ -2804,6 +2804,38 @@ section {
 }
 .name_service {
   -webkit-line-clamp: 1 !important;
+}
+
+.pad-top-bottom {
+  padding: 100px 0;
+}
+
+.services {
+  display: flex;
+  width: calc(100% + 30px);
+  margin: 0 -15px;
+}
+
+.service {
+  width: calc(100% - 30px);
+  margin: 0 15px 30px 15px;
+}
+
+.service_show-add {
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #fa9e1b, #8d4fff, #fa9e1b);
+  display: inline-block;
+  margin-top: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 17px;
+  transition: all 0.4s ease-in-out;
+}
+
+.service_show-add:hover {
+  background-color: red;
+  color: #fff;
+  background: linear-gradient(90deg, #8d4fff, #fa9e1b, #fa9e1b);
 }
 
 /*# sourceMappingURL=style.css.map */

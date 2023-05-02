@@ -5,12 +5,13 @@
             <div class="row">
                 <div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
                     <div class="logo_container">
-                        <div class="logo"><a href="#"><img src="{{ asset('public/frontend/images/logo.png') }}" alt="">travelix</a></div>
+                        <div class="logo"><a href="{{ url('/') }}"><img src="{{ asset('public/frontend/images/logo.png') }}" alt="">travelix</a></div>
                     </div>
                     <div class="main_nav_container ml-auto">
                         <ul class="main_nav_list">
                             <li class="main_nav_item"><a href="{{ url('/') }}">{{ __('home') }}</a></li>
-                            <li class="main_nav_item"><a href="">{{ __('about us') }}</a></li>
+                            <li class="main_nav_item"><a href="ve-chung-toi">{{ __('about us') }}</a></li>
+                            <li class="main_nav_item"><a href="{{ url('/dich-vu') }}">{{ __('service') }}</a></li>
                             <li class="main_nav_item"><a href="">{{ __('offers') }}</a></li>
                             <li class="main_nav_item"><a href="">{{ __('news') }}</a></li>
                             <li class="main_nav_item"><a href="">{{ __('contact') }}</a></li>

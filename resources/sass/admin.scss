@@ -389,4 +389,9 @@
     border-bottom: 1px solid !important;
 }
 
+.select-cat {
+    margin: 10px;
+    width: calc(50% - 20px);
+}
+
 // sass resources/sass/admin.scss public/backend/css/admin.css -w

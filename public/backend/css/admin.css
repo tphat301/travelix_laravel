@@ -380,4 +380,9 @@
   border-bottom: 1px solid !important;
 }
 
+.select-cat {
+  margin: 10px;
+  width: calc(50% - 20px);
+}
+
 /*# sourceMappingURL=admin.css.map */

@@ -40,6 +40,17 @@ window.addEventListener('load', function () {
         }));
     }
 
+
+    let btnDeleteCateoryService = document.querySelectorAll('.delete__catService');
+    if(btnDeleteCateoryService) {
+        [...btnDeleteCateoryService].forEach(item => item.addEventListener('click', function (e) {
+            let  idNumber = this.dataset.id;
+            e.preventDefault();
+            formDelete.setAttribute('action', `http://localhost/travelix_laravel/admin/category_service/delete/${idNumber}`)
+            formDelete.submit();
+        }));
+    }
+
     // Show image 1
     let inputFileUser = document.querySelector('.card__file');
     let imgUser = document.querySelector('.card__img');

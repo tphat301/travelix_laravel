@@ -311,7 +311,8 @@
                                     <div class="intro_item_overlay"></div>
                                     <div class="intro_item_background" style="background-image:url({{ asset('public/backend/uploads/'.$v->photo) }})"></div>
                                     <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-                                        <div class="intro_date">May 25th - June 01st</div>
+                                        {{-- <div class="intro_date">May 25th - June 01st</div> --}}
+                                        <div class="intro_date">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $v->created_at)->format('d/m/Y H:i:s') }}</div>
                                         <div class="button intro_button"><div class="button_bcg"></div><a href="{{ url('/order/create/'.$v->id) }}">Add Cart<span></span><span></span><span></span></a></div>
                                         <div class="intro_center text-center">
                                             <h1 class="name_service text-split">{{ $v->name }}</h1>

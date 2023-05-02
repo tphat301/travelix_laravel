@@ -3,6 +3,11 @@
 <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link href="{{ url('public/frontend/plugins/colorbox/colorbox.css') }}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/blog_styles.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/blog_responsive.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/about_styles.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/about_responsive.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/plugins/OwlCarousel2-2.2.1/animate.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url('public/frontend/css/responsive.css') }}">
 <link rel="stylesheet" href="{{ url('public/frontend/css/style.css') }}">

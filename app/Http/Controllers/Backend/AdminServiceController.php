@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\CategoryService;
 use App\Models\Gallery;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -45,7 +46,7 @@ class AdminServiceController extends Controller
 
     public function store(Request $request, $id = "")
     {
-        if ($id == "") {
+        if (empty($id)) {
             $request->validate(
                 [
                     "name" => ["required", "string", "max:255"],
@@ -175,7 +176,7 @@ class AdminServiceController extends Controller
         }
 
 
-        if ($id) {
+        if (!empty($id)) {
             $request->validate(
                 [
                     "name" => ["required", "string", "max:255"],
@@ -261,18 +262,23 @@ class AdminServiceController extends Controller
 
             Service::find($id)->update(
                 [
-                    "name" => $request->name,
-                    "photo" => $photo,
-                    "photo1" => $photo1,
-                    "photo2" => $photo2,
-                    "slug" => $request->slug,
-                    "code" => $request->code,
-                    "desc" => $request->desc,
-                    "content" => $request->content,
-                    "price" => $request->price,
-                    "price_old" => $request->price_old,
-                    "discount" => $request->discount,
-                    "brand" => $request->brand,
+                    "name" => !empty($request->name) ? $request->name : '',
+                    "parent_id1" => !empty($request->parent_id1) ? $request->parent_id1 : '',
+                    "parent_id2" => !empty($request->parent_id2) ? $request->parent_id2 : '',
+                    "parent_id3" => !empty($request->parent_id3) ? $request->parent_id3 : '',
+                    "parent_id4" => !empty($request->parent_id4) ? $request->parent_id4 : '',
+                    "photo" => !empty($photo) ? $photo : '',
+                    "photo1" => !empty($photo1) ? $photo1 : '',
+                    "photo2" => !empty($photo2) ? $photo2 : '',
+                    "slug" => !empty($request->slug) ? $request->slug : '',
+                    "code" => !empty($request->code) ? $request->code : '',
+                    "qty" => !empty($request->qty) ? $request->qty : '',
+                    "desc" => !empty($request->desc) ? $request->desc : '',
+                    "content" => !empty($request->content) ? $request->content : '',
+                    "price" => !empty($request->price) ? $request->price : '',
+                    "price_old" => !empty($request->price_old) ? $request->price_old : '',
+                    "discount" => !empty($request->discount) ? $request->discount : '',
+                    "brand" => !empty($request->brand) ? $request->brand : '',
                     "type" => 'dich-vu',
                 ]
             );
@@ -323,7 +329,26 @@ class AdminServiceController extends Controller
     public function edit($id)
     {
         $serviceById = Service::find($id);
-        return view("admin.service.edit", compact("serviceById"));
+        $categoryServiceLevel1 = CategoryService::where('status', 'active')->where('type', 'dich-vu')->where('level', 1)->get();
+        $categoryServiceLevel2 = CategoryService::where('status', 'active')->where('type', 'dich-vu')->where('level', 2)->get();
+        return view("admin.service.edit", compact("serviceById", "categoryServiceLevel1", "categoryServiceLevel2"));
+    }
+
+    public function edit_ajax(Request $request)
+    {
+        $action = $request->action;
+        $id = $request->id;
+        if (!empty($action)) {
+            $output = '';
+            if ($action == 'category1') {
+                $categoryServiceLevel2 = CategoryService::where('parent_id', $id)->where('level', 2)->get();
+                $output .= '<option>Chọn danh mục cấp 2</option>';
+                foreach ($categoryServiceLevel2 as $v2) {
+                    $output .= '<option value="' . $v2->parent_id . '">' . $v2->name . '</option>';
+                }
+            }
+            return $output;
+        }
     }
 
     public function action(Request $request)

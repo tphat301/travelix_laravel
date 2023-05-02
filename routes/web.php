@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AdminCategoryService;
 use App\Http\Controllers\Backend\AdminCouponController;
 use App\Http\Controllers\Backend\AdminLinkController;
 use App\Http\Controllers\Backend\AdminOrderController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\MomoController;
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Frontend\PaymentController;
+use App\Http\Controllers\Frontend\ServiceController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -54,15 +56,15 @@ Route::get('/api/callback', [GoogleController::class, 'callbackLoginGoogle']);
 
 /* FRONTEND ROUTE WEB */
 
-// HOME
+// HOME PAGE
 /* [GET] Route Home */
 Route::get('/', [IndexController::class, 'index']);
 
-// ORDER
+// ORDER PAGE
 /* [GET] Route Index Order */
 Route::get('/order/index', [OrderController::class, 'index']);
 /* [GET] Route Create Order */
-Route::get('/order/create/{id}', [OrderController::class, 'create']);
+Route::get('/order/create/{id}', [OrderController::class, 'create'])->name('order.create');
 /* [POST] Route Update Order */
 Route::post('/order/update', [OrderController::class, 'update']);
 /* [POST] Route Update Order AJAX */
@@ -83,15 +85,21 @@ Route::get('/order/feedback', [OrderController::class, 'feedback']);
 Route::post('/order/coupon', [OrderController::class, 'coupon']);
 
 
-// VNPAY PAYMENT
+// VNPAY PAYMENT PAGE
 /* [POST] Route Vnpay store */
 Route::post('/order/vnpay/store', [PaymentController::class, 'store']);
 Route::get('/order/vnpay/checkout', [PaymentController::class, 'checkout']);
 
-// MOMO PAYMENT
+// MOMO PAYMENT PAGE
 /* [POST] Route Momo store */
 Route::post('/order/momo/store', [MomoController::class, 'store']);
 Route::get('/order/momo/checkout', [MomoController::class, 'checkout']);
+
+
+// SERVICE PAGE
+/* [GET] Route Service */
+Route::get('/dich-vu', [ServiceController::class, 'index']);
+Route::get('/dich-vu/{slug}', [ServiceController::class, 'show'])->name('service.show');
 
 
 
@@ -131,6 +139,8 @@ Route::middleware(['auth', 'password.confirm', 'CheckUserLogin'])->group(functio
     Route::get('admin/service/create', [AdminServiceController::class, 'create'])->name('admin.service.create');
     /* [POST] store */
     Route::post('admin/service/store/{id?}', [AdminServiceController::class, 'store'])->name('admin.service.store');
+    /* [POST] edit ajax */
+    Route::post('admin/service/edit_ajax', [AdminServiceController::class, 'edit_ajax'])->name('admin.service.edit_ajax');
     /* [GET] edit */
     Route::get('admin/service/edit/{id}', [AdminServiceController::class, 'edit'])->name('admin.service.edit');
     /* [POST] action */
@@ -143,6 +153,34 @@ Route::middleware(['auth', 'password.confirm', 'CheckUserLogin'])->group(functio
     Route::delete('admin/service/delete/{id}', [AdminServiceController::class, 'delete'])->name('admin.service.delete');
     /* [GET] copy */
     Route::get('admin/service/copy/{id}', [AdminServiceController::class, 'copy'])->name('admin.service.copy');
+
+
+    // CATEGORY SERVICE LEVEL 1
+    /* [GET] index */
+    Route::get('admin/category_service/index', [AdminCategoryService::class, 'index'])->name('admin.category_service.index');
+    /* [GET] edit */
+    Route::get('admin/category_service/edit/{id}', [AdminCategoryService::class, 'edit'])->name('admin.category_service.edit');
+    /* [GET] create */
+    Route::get('admin/category_service/create', [AdminCategoryService::class, 'create'])->name('admin.category_service.create');
+    /* [POST] store */
+    Route::post('admin/category_service/store/{id?}', [AdminCategoryService::class, 'store'])->name('admin.category_service.store');
+    /* [POST] action */
+    Route::post('admin/category_service/action', [AdminCategoryService::class, 'action'])->name('admin.category_service.action');
+    /* [POST] state */
+    Route::post('admin/category_service/state', [AdminCategoryService::class, 'state']);
+    /* [POST] remove_state */
+    Route::post('admin/category_service/remove_state', [AdminCategoryService::class, 'remove_state']);
+    /* [DELETE] delete */
+    Route::delete('admin/category_service/delete/{id}', [AdminCategoryService::class, 'delete'])->name('admin.category_service.delete');
+
+
+    // CATEGORY SERVICE LEVEL 2
+    /* [GET] create */
+    Route::get('admin/category_service2/create', [AdminCategoryService::class, 'create_level2'])->name('admin.category_service2.create');
+    /* [GET] edit */
+    Route::get('admin/category_service2/edit/{id}', [AdminCategoryService::class, 'edit_level2'])->name('admin.category_service2.edit');
+    /* [POST] store */
+    Route::post('admin/category_service2/store/{id?}', [AdminCategoryService::class, 'store_level2'])->name('admin.category_service2.store');
 
 
     // ROUTE ADMIN ORDER

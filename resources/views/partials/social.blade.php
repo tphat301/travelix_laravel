@@ -12,13 +12,13 @@
             <span>Fanpage</span>
         </div>
         <div class="fb-page" data-href="https://www.facebook.com/profile.php?id=100091970813430>" data-tabs="messages" data-small-header="true" data-height="300" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100091970813430&tabs=timeline&width=300&height=359&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId=874969367000309" width="300" height="359" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            {!! $settingConvert['fanpage'] !!}
         </div>
     </div>
 </div>
 
 
-<a class="btn-zalo btn-frame text-decoration-none" target="_blank" href="https://id.zalo.me/">
+<a class="btn-zalo btn-frame text-decoration-none" target="_blank" href="{{ $settingConvert['zalo'] }}">
     <div class="animated infinite zoomIn kenit-alo-circle"></div>
     <div class="animated infinite pulse kenit-alo-circle-fill"></div>
     <i>
@@ -27,14 +27,14 @@
 </a>
 
 
-<a class="btn-messager btn-frame text-decoration-none" target="_blank" href="https://www.messenger.com">
+<a class="btn-messager btn-frame text-decoration-none" target="_blank" href="{{ $settingConvert['messager'] }}">
     <div class="animated infinite zoomIn kenit-alo-circle"></div>
     <div class="animated infinite pulse kenit-alo-circle-fill"></div>
     <i>
         <img class="d-block lazy loaded" alt="Zalo" src="{{ asset('public/frontend/images/MessengerIcon.png') }}" data-was-processed="true">
     </i>
 </a>
-<a class="btn-call btn-frame text-decoration-none" target="_blank" href="tel:0987654321">
+<a class="btn-call btn-frame text-decoration-none" target="_blank" href="tel:{{ preg_replace('/[^0-9]/', '', $settingConvert['call']); }}">
     <div class="animated infinite zoomIn kenit-alo-circle"></div>
     <div class="animated infinite pulse kenit-alo-circle-fill"></div>
     <i>

@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-sm-12 col-xl-6 bg-secondary">
                     @if ($userById->photo)
-                        <img src="{{ asset($userById->photo) }}" class="card__img">
+                        <img src="{{ asset($userById->photo) }}" width="100px" height="100px" class="card__img">
                     @else
                         <img src="{{ asset('public/backend/img/img_error.png') }}" class="card__img">
                     @endif

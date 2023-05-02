@@ -75,13 +75,13 @@ class AdminCouponController extends Controller
             );
 
             $coupon = new Coupon;
-            $coupon->code = $request->code;
-            $coupon->code_product = $request->code_product;
-            $coupon->discount = $request->discount_form;
-            $coupon->options = $request->discount;
+            $coupon->code = !empty($request->code) ? $request->code : '';
+            $coupon->code_product = !empty($request->code_product) ? $request->code_product : '';
+            $coupon->discount = !empty($request->discount_form) ? $request->discount_form : '';
+            $coupon->options = !empty($request->discount) ? $request->discount : '';
             $coupon->status = 'active';
             $coupon->type = 'coupon';
-            $coupon->qty = $request->qty;
+            $coupon->qty = !empty($request->qty) ? $request->qty : '';
             $coupon->save();
             return redirect('admin/coupon/create')->with('success', 'Thêm dữ liệu thành công');
         }
@@ -89,11 +89,11 @@ class AdminCouponController extends Controller
         if ($id) {
             Coupon::find($id)->update(
                 [
-                    "code" => $request->code,
-                    "code_product" => $request->code_product,
-                    "discount" => $request->discount_form,
-                    "options" => $request->discount,
-                    "qty" => $request->qty,
+                    "code" => !empty($request->code) ? $request->code : '',
+                    "code_product" => !empty($request->code_product) ? $request->code_product : '',
+                    "discount" => !empty($request->discount_form) ? $request->discount_form : '',
+                    "options" => !empty($request->discount) ? $request->discount : '',
+                    "qty" => !empty($request->qty) ? $request->qty : '',
                 ]
             );
             return redirect('admin/coupon/edit/' . $id)->with('success', 'Thêm dữ liệu thành công');

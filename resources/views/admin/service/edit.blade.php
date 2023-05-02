@@ -77,6 +77,13 @@
                         @enderror
                     </div>
                     <div class="mb-3">
+                        {!! Form::label('qty', 'Số lượng dịch vụ:', ['class'=>['card__label--username','col-form-label']]); !!}
+                        {!! Form::text('qty', $serviceById->qty, ['class'=>['form-control', 'card__code'] ,'placeholder'=>'Số lượng dịch vụ']) !!}
+                        @error('qty')
+                            <small class="text-red-700">{{ $message }}</small>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
                         {!! Form::label('desc', 'Mô tả:', ['class'=>['card__label--desc','col-sm-4', 'col-form-label']]); !!}
                         {!! Form::textarea('desc', $serviceById->desc, ['class' => ['medium_text','card__desc'], 'placeholder' => 'Mô tả sản phẩm']) !!}
                     </div>
@@ -89,9 +96,28 @@
             </div>
             <div class="col-sm-12 col-xl-6 bg-secondary">
                 <div class="mb-3">
+                    <h3 class="mb-2 mt-2 text-center uppercase">Danh mục</h3>
+                    <div class="row">
+
+                        <select name="parent_id1" id="category1" class="form-select col-md-6 col-lg-6 col-xl-6 col-6 select-cat category_ajax">
+                            <option value="">Chọn danh mục cấp 1</option>
+                            @foreach ($categoryServiceLevel1 as $v1)
+                                <option value="{{ $v1->id }}">{{ $v1->name }}</option>
+                            @endforeach
+                        </select>
+
+                        <select name="parent_id2" id="category2" class="form-select col-md-6 col-lg-6 col-xl-6 col-6 select-cat">
+                            <option value="">Chọn danh mục cấp 2</option>
+                            @foreach ($categoryServiceLevel2 as $v2)
+                                <option value="{{ $v2->parent_id }}">{{ $v2->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
                     <h3 class="mb-2 mt-2 text-center uppercase">Hình ảnh 1</h3>
                     @if ($serviceById->photo)
-                        <img src="{{ asset($serviceById->photo) }}" class="card__img card__img--dev">
+                        <img src="{{ asset('public/backend/uploads/'.$serviceById->photo) }}" class="card__img card__img--dev">
                     @else
                         <img src="{{ asset('public/backend/img/img_error.png') }}" class="card__img card__img--dev">
                     @endif
@@ -100,7 +126,7 @@
                 <div class="mb-3">
                     <h3 class="mb-2 mt-2 text-center uppercase">Hình ảnh 2</h3>
                     @if ($serviceById->photo1)
-                        <img src="{{ asset($serviceById->photo1) }}" class="card__img1 card__img--dev">
+                        <img src="{{ asset('public/backend/uploads/'.$serviceById->photo1) }}" class="card__img1 card__img--dev">
                     @else
                         <img src="{{ asset('public/backend/img/img_error.png') }}" class="card__img1 card__img--dev">
                     @endif
@@ -109,7 +135,7 @@
                 <div class="mb-3">
                     <h3 class="mb-2 mt-2 text-center uppercase">Hình ảnh 3</h3>
                     @if ($serviceById->photo2)
-                        <img src="{{ asset($serviceById->photo2) }}" class="card__img2 card__img--dev">
+                        <img src="{{ asset('public/backend/uploads/'.$serviceById->photo2) }}" class="card__img2 card__img--dev">
                     @else
                         <img src="{{ asset('public/backend/img/img_error.png') }}" class="card__img2 card__img--dev">
                     @endif

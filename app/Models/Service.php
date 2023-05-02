@@ -11,5 +11,5 @@ class Service extends Model
     use HasFactory;
     use SoftDeletes;
     protected $table = 'services';
-    protected $fillable = ['parent_id', 'name', 'brand', 'photo', 'photo1', 'photo2', 'slug', 'code', 'type', 'status', 'state', 'desc', 'content', 'options', 'price', 'price_old', 'discount', 'qty'];
+    protected $fillable = ['parent_id1', 'parent_id2', 'parent_id3', 'parent_id4', 'name', 'brand', 'photo', 'photo1', 'photo2', 'slug', 'code', 'type', 'status', 'state', 'desc', 'content', 'options', 'price', 'price_old', 'discount', 'qty'];
 }

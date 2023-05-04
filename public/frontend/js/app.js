@@ -283,6 +283,31 @@ OwlPage ();
     }
 
 
+
+    if(isExist($('.category_lv2'))) {
+        $('.category_lv2').click(function() {
+            $(this).parent('.search_tabs').next('.show_ser_cat').css('display', 'none');
+            $(this).addClass('active');
+            let idcat1 = $(this).data('idcat1');
+            let parentId2 = $(this).attr('parentid2');
+            $.ajax({
+                url: "http://localhost/travelix_laravel/service/load_ajax",
+                data: {parentId2:parentId2, _token: $("input[name='_token']").val()},
+                method: "GET",
+                dataType: 'TEXT',
+                success: function(data) {
+                    $(".load_ajax_service-"+idcat1).html(data);
+                    return false;
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+        });
+    }
+
+
     // Search Index
     if(isExist($('.search_content_input'))) {
         $('.search_content_input').keyup(function() {

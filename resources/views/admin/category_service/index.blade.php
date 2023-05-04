@@ -69,10 +69,10 @@
                                 <td>
                                     @if ($v->photo)
                                         <a href="{{ route('admin.service.edit', $v->id) }}">
-                                            <img class="thumbs rounded" src="{{ asset('public/backend/uploads/'.$v->photo) }}" alt="">
+                                            <img class="thumbs rounded" src="{{ asset('public/backend/uploads/'.$v->photo) }}" width="50" height="50" alt="">
                                         </a>
                                     @else
-                                        <a href="{{ route('admin.service.edit', $v->id) }}">
+                                        <a href="{{ route('admin.category_service.edit', $v->id) }}">
                                             <img class="thumbs rounded" src="{{ asset('public/backend/img/img_error.png') }}" alt="">
                                         </a>
                                     @endif

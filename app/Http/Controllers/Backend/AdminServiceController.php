@@ -344,7 +344,7 @@ class AdminServiceController extends Controller
                 $categoryServiceLevel2 = CategoryService::where('parent_id', $id)->where('level', 2)->get();
                 $output .= '<option>Chọn danh mục cấp 2</option>';
                 foreach ($categoryServiceLevel2 as $v2) {
-                    $output .= '<option value="' . $v2->parent_id . '">' . $v2->name . '</option>';
+                    $output .= '<option value="' . $v2->id . '">' . $v2->name . '</option>';
                 }
             }
             return $output;

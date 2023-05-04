@@ -867,7 +867,7 @@ section {
 }
 
 .search_tabs_container {
-    position: absolute;
+    position: unset;
     bottom: 100%;
     left: 15px;
     width: calc(100% - 30px);
@@ -910,7 +910,7 @@ section {
 
 .search_tab:last-child {
     border-top-right-radius: 94px;
-    padding-right: 7px;
+    padding-right: 0;
 }
 
 .search_tab.active {
@@ -1087,8 +1087,8 @@ section {
 
 .intro {
     width: 100%;
-    padding-top: 100px;
-    padding-bottom: 105px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 .intro_title {
@@ -1110,7 +1110,7 @@ section {
 }
 
 .intro_items {
-    margin-top: 69px;
+    margin-top: 20px;
 }
 
 .intro_item {
@@ -2172,6 +2172,7 @@ section {
 .services {
     width: calc(100% + 20px);
     margin: 0 -10px;
+    flex-wrap: wrap;
 }
 
 .item img {
@@ -2890,6 +2891,69 @@ section {
     background-color: red;
     color: #fff;
     background: linear-gradient(90deg, #8d4fff, #fa9e1b, #fa9e1b);
+}
+
+.category_service .owl-page{
+    margin-bottom: 60px;
+}
+
+.service_ajaxs {
+    display: flex;
+    flex-flow: wrap row;
+    width: calc(100% + 30px);
+    margin: 0 -15px;
+}
+
+.service_ajax {
+    width: calc(100% / 3 - 30px);
+    margin: 0px 15px 30px 15px;
+}
+
+.menu_service > a {position: relative;}
+
+.category_level1 li a,
+.menu_service {transition: all .4s ease;}
+
+.category_level1 li a:hover {color:#F68634;}
+
+.menu_service:hover .category_level1 {
+    opacity: 1;
+    visibility: visible !important;
+}
+
+.category_level1 {
+    position: absolute;
+    width: 260px;
+    top: 30px;
+    background: #350a4e;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.category_level1 > li{
+    display: block;
+    position: relative;
+    padding: 10px 20px;
+}
+
+.category_level2 {
+    position: absolute;
+    left: 100%;
+    width: 263px;
+    top: 0;
+}
+
+.category_level2 li {
+    padding: 10px 20px;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #350a4e;
+}
+
+
+.category_level1>li:hover .category_level2 li {
+    opacity: 1;
+    visibility: visible;
 }
 
 // sass resources/sass/style.scss public/frontend/css/style.css -w

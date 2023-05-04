@@ -37,7 +37,7 @@ class ComposerStaticInit40c3cc463c6826488afe84bd2645da18
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
-        '222c91ef57124698a20467c8567a2d09' => __DIR__ . '/../..' . '/app/Helpers/manager_admin_func.php',
+        'af5c5b652117065472ae82d2ff2dcc9d' => __DIR__ . '/../..' . '/app/Helpers/function_developer.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -591,6 +591,7 @@ class ComposerStaticInit40c3cc463c6826488afe84bd2645da18
         'App\\Http\\Controllers\\Frontend\\MomoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/MomoController.php',
         'App\\Http\\Controllers\\Frontend\\OrderController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/OrderController.php',
         'App\\Http\\Controllers\\Frontend\\PaymentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/PaymentController.php',
+        'App\\Http\\Controllers\\Frontend\\ServiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Frontend/ServiceController.php',
         'App\\Http\\Controllers\\GoogleController' => __DIR__ . '/../..' . '/app/Http/Controllers/GoogleController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',

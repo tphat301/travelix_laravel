@@ -39,301 +39,62 @@
 
 	</div>
 
-	<!-- Search -->
-
-	<div class="search">
-		
-
-		<!-- Search Contents -->
-		
-		<div class="container fill_height">
-			<div class="row fill_height">
-				<div class="col fill_height">
-
-					<!-- Search Tabs -->
-
-					<div class="search_tabs_container">
-						<div class="search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-							<div class="search_tab active d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="{{ asset('public/frontend/images/suitcase.png') }}" alt=""><span>hotels</span></div>
-							<div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="{{ asset('public/frontend/images/bus.png') }}" alt="">car rentals</div>
-							<div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="{{ asset('public/frontend/images/departure.png') }}" alt="">flights</div>
-							<div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="{{ asset('public/frontend/images/island.png') }}" alt="">trips</div>
-							<div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="{{ asset('public/frontend/images/cruise.png') }}" alt="">cruises</div>
-							<div class="search_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start"><img src="{{ asset('public/frontend/images/diving.png') }}" alt="">activities</div>
-						</div>		
-					</div>
-
-					<!-- Search Panel -->
-
-					<div class="search_panel active">
-						<form action="#" id="search_form_1" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-							<div class="search_item">
-								<div>destination</div>
-								<input type="text" class="destination search_input" required="required">
-							</div>
-							<div class="search_item">
-								<div>check in</div>
-								<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-							</div>
-							<div class="search_item">
-								<div>check out</div>
-								<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-							</div>
-							<div class="search_item">
-								<div>adults</div>
-								<select name="adults" id="adults_1" class="dropdown_item_select search_input">
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
-								</select>
-							</div>
-							<div class="search_item">
-								<div>children</div>
-								<select name="children" id="children_1" class="dropdown_item_select search_input">
-									<option>0</option>
-									<option>02</option>
-									<option>03</option>
-								</select>
-							</div>
-							<button class="button search_button">search<span></span><span></span><span></span></button>
-						</form>
-					</div>
-
-					<!-- Search Panel -->
-
-					<div class="search_panel">
-						<form action="#" id="search_form_2" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-							<div class="search_item">
-								<div>destination</div>
-								<input type="text" class="destination search_input" required="required">
-							</div>
-							<div class="search_item">
-								<div>check in</div>
-								<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-							</div>
-							<div class="search_item">
-								<div>check out</div>
-								<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-							</div>
-							<div class="search_item">
-								<div>adults</div>
-								<select name="adults" id="adults_2" class="dropdown_item_select search_input">
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
-								</select>
-							</div>
-							<div class="search_item">
-								<div>children</div>
-								<select name="children" id="children_2" class="dropdown_item_select search_input">
-									<option>0</option>
-									<option>02</option>
-									<option>03</option>
-								</select>
-							</div>
-							<button class="button search_button">search<span></span><span></span><span></span></button>
-						</form>
-					</div>
-
-					<!-- Search Panel -->
-
-					<div class="search_panel">
-						<form action="#" id="search_form_3" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-							<div class="search_item">
-								<div>destination</div>
-								<input type="text" class="destination search_input" required="required">
-							</div>
-							<div class="search_item">
-								<div>check in</div>
-								<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-							</div>
-							<div class="search_item">
-								<div>check out</div>
-								<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-							</div>
-							<div class="search_item">
-								<div>adults</div>
-								<select name="adults" id="adults_3" class="dropdown_item_select search_input">
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
-								</select>
-							</div>
-							<div class="search_item">
-								<div>children</div>
-								<select name="children" id="children_3" class="dropdown_item_select search_input">
-									<option>0</option>
-									<option>02</option>
-									<option>03</option>
-								</select>
-							</div>
-							<button class="button search_button">search<span></span><span></span><span></span></button>
-						</form>
-					</div>
-
-					<!-- Search Panel -->
-
-					<div class="search_panel">
-						<form action="#" id="search_form_4" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-							<div class="search_item">
-								<div>destination</div>
-								<input type="text" class="destination search_input" required="required">
-							</div>
-							<div class="search_item">
-								<div>check in</div>
-								<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-							</div>
-							<div class="search_item">
-								<div>check out</div>
-								<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-							</div>
-							<div class="search_item">
-								<div>adults</div>
-								<select name="adults" id="adults_4" class="dropdown_item_select search_input">
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
-								</select>
-							</div>
-							<div class="search_item">
-								<div>children</div>
-								<select name="children" id="children_4" class="dropdown_item_select search_input">
-									<option>0</option>
-									<option>02</option>
-									<option>03</option>
-								</select>
-							</div>
-							<button class="button search_button">search<span></span><span></span><span></span></button>
-						</form>
-					</div>
-
-					<!-- Search Panel -->
-
-					<div class="search_panel">
-						<form action="#" id="search_form_5" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-							<div class="search_item">
-								<div>destination</div>
-								<input type="text" class="destination search_input" required="required">
-							</div>
-							<div class="search_item">
-								<div>check in</div>
-								<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-							</div>
-							<div class="search_item">
-								<div>check out</div>
-								<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-							</div>
-							<div class="search_item">
-								<div>adults</div>
-								<select name="adults" id="adults_5" class="dropdown_item_select search_input">
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
-								</select>
-							</div>
-							<div class="search_item">
-								<div>children</div>
-								<select name="children" id="children_5" class="dropdown_item_select search_input">
-									<option>0</option>
-									<option>02</option>
-									<option>03</option>
-								</select>
-							</div>
-							<button class="button search_button">search<span></span><span></span><span></span></button>
-						</form>
-					</div>
-
-					<!-- Search Panel -->
-
-					<div class="search_panel">
-						<form action="#" id="search_form_6" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-							<div class="search_item">
-								<div>destination</div>
-								<input type="text" class="destination search_input" required="required">
-							</div>
-							<div class="search_item">
-								<div>check in</div>
-								<input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-							</div>
-							<div class="search_item">
-								<div>check out</div>
-								<input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-							</div>
-							<div class="search_item">
-								<div>adults</div>
-								<select name="adults" id="adults_6" class="dropdown_item_select search_input">
-									<option>01</option>
-									<option>02</option>
-									<option>03</option>
-								</select>
-							</div>
-							<div class="search_item">
-								<div>children</div>
-								<select name="children" id="children_6" class="dropdown_item_select search_input">
-									<option>0</option>
-									<option>02</option>
-									<option>03</option>
-								</select>
-							</div>
-							<button class="button search_button">search<span></span><span></span><span></span></button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>		
-	</div>
-
 	<!-- Intro -->
-	
+	@if (count($categoryServiceLevel1))
 	<div class="intro">
 		<div class="container">
-			<div class="row">
-				<div class="col">
-					<h2 class="intro_title text-center">{{ __('the best tours') }}</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-10 offset-lg-1">
-					<div class="intro_text text-center">
-						<p>{{ $slogan->slogan }}</p>
-					</div>
-				</div>
-			</div>
-
-            @if (count($services))
-                <div class="intro_items" data-aos="fade-up" data-aos-delay="300">
-                    <div class="owl-page owl-carousel owl-theme" data-xsm-items="2:30" data-sm-items="3:30" data-md-items="3:30" data-lg-items="3:30" data-xlg-items="3:30" data-rewind="1" data-autoplay="1" data-loop="0" data-lazyload="0" data-mousedrag="1" data-touchdrag="1" data-smartspeed="500" data-autoplayspeed="3500" data-dots="0" data-nav="0">
-                        <!-- Intro Item -->
-
-                        @foreach ($services as $k => $v)
-                            <div class="intro_col">
-                                <div class="intro_item">
-                                    <div class="intro_item_overlay"></div>
-                                    <div class="intro_item_background" style="background-image:url({{ asset('public/backend/uploads/'.$v->photo) }})"></div>
-                                    <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-                                        {{-- <div class="intro_date">May 25th - June 01st</div> --}}
-                                        <div class="intro_date">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $v->created_at)->format('d/m/Y H:i:s') }}</div>
-                                        <div class="button intro_button"><div class="button_bcg"></div><a href="{{ url('/order/create/'.$v->id) }}">Add Cart<span></span><span></span><span></span></a></div>
-                                        <div class="intro_center text-center">
-                                            <h1 class="name_service text-split">{{ $v->name }}</h1>
-                                            <div class="intro_price">From {{ number_format($v->price, 0,",",".") }}VND</div>
-                                            <div class="rating rating_4">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
+            @foreach ($categoryServiceLevel1 as $kcat1 => $vcat1)
+                <div class="category_service">
+                    @if (count($categoryServiceLevel2))
+                    <h2 class="intro_title text-center">{{ $vcat1->name }}</h2>
+                    <p>{{ $slogan->slogan }}</p>
+                        <div class="search_tabs_container mb-4">
+                            <div class="search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+                                @foreach ($categoryServiceLevel2 as $kcat2 => $vcat2)
+                                @if ($vcat2->parent_id == $vcat1->id)
+                                    <div class="search_tab category_lv2 d-flex flex-row align-items-center justify-content-lg-center justify-content-start" data-idcat1="{{ $vcat1->id }}"  parentid2="{{$vcat2->id}}"><img src="{{ asset('public/frontend/images/'.$vcat1->photo) }}" alt="{{ $vcat2->name }}"><span>{{ $vcat2->name }}</span></div>
+                                @endif
+                                @endforeach
+                            </div>
+                            <div class="show_ser_cat">
+                                @if (count($services))
+                                    <div class="service_ajaxs">
+                                        @foreach ($services as $k => $v)
+                                        @if ($v->parent_id1 == $vcat1->id) 
+                                        <div class="intro_col service_ajax">
+                                            <div class="intro_item">
+                                                <div class="intro_item_overlay"></div>
+                                                <div class="intro_item_background" style="background-image:url({{ asset('public/backend/uploads/'.$v->photo) }})"></div>
+                                                <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
+                                                    <div class="intro_date">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $v->created_at)->format('d/m/Y H:i:s') }}</div>
+                                                    <div class="button intro_button"><div class="button_bcg"></div><a href="{{ url('/order/create/'.$v->id) }}">Thêm vào giỏ<span></span><span></span><span></span></a></div>
+                                                    <div class="intro_center text-center">
+                                                        <h1 class="name_service text-split">{{ $v->name }}</h1>
+                                                        <div class="intro_price">Giá: {{ number_format($v->price, 0,",",".") }}VND</div>
+                                                        <div class="rating rating_4">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+                                        @endif
+                                        @endforeach
                                     </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
+                                @endif
+                            </div>		
+                            <div class="load_ajax_service load_ajax_service-{{ $vcat1->id }}" data-idcat1="{{ $vcat1->id }}"></div>
+                        </div>
+                    @endif
                 </div>
-            @endif
+            @endforeach
 		</div>
 	</div>
+    @endif
 
 	<!-- CTA -->
 

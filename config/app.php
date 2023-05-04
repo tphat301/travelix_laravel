@@ -182,7 +182,7 @@ return [
 
         Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -245,6 +245,7 @@ return [
         'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
 
         'Image' => Intervention\Image\Facades\Image::class
+
     ],
 
 ];

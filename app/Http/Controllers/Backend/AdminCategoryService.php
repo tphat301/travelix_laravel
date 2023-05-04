@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\CategoryService;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class AdminCategoryService extends Controller
 {
@@ -31,6 +32,7 @@ class AdminCategoryService extends Controller
             }
             $categoryServices = CategoryService::where("name", "LIKE", "%{$keyword}%")->paginate(10);
         }
+
         $countCategoryServiceActive = CategoryService::count();
         $countCategoryServiceTrash = CategoryService::onlyTrashed()->count();
         $countCategoryService = [$countCategoryServiceActive, $countCategoryServiceTrash];
@@ -192,7 +194,7 @@ class AdminCategoryService extends Controller
 
             CategoryService::find($id)->update(
                 [
-                    "parent_id" => !empty($request->input('parent_id')) ? $request->input('parent_id') : '',
+                    "parent_id" => !empty($request->parent_id) ? $request->parent_id : '',
                     "name" => !empty($request->name) ? $request->name : '',
                     "slug" => !empty($request->slug) ? $request->slug : '',
                     "brand" => !empty($request->brand) ? $request->brand : '',

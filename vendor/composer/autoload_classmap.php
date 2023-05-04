@@ -28,6 +28,7 @@ return array(
     'App\\Http\\Controllers\\Frontend\\MomoController' => $baseDir . '/app/Http/Controllers/Frontend/MomoController.php',
     'App\\Http\\Controllers\\Frontend\\OrderController' => $baseDir . '/app/Http/Controllers/Frontend/OrderController.php',
     'App\\Http\\Controllers\\Frontend\\PaymentController' => $baseDir . '/app/Http/Controllers/Frontend/PaymentController.php',
+    'App\\Http\\Controllers\\Frontend\\ServiceController' => $baseDir . '/app/Http/Controllers/Frontend/ServiceController.php',
     'App\\Http\\Controllers\\GoogleController' => $baseDir . '/app/Http/Controllers/GoogleController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',

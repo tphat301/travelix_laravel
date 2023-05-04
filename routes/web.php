@@ -59,6 +59,7 @@ Route::get('/api/callback', [GoogleController::class, 'callbackLoginGoogle']);
 // HOME PAGE
 /* [GET] Route Home */
 Route::get('/', [IndexController::class, 'index']);
+Route::get('/service/load_ajax', [IndexController::class, 'load_ajax']);
 
 // ORDER PAGE
 /* [GET] Route Index Order */
@@ -97,8 +98,9 @@ Route::get('/order/momo/checkout', [MomoController::class, 'checkout']);
 
 
 // SERVICE PAGE
-/* [GET] Route Service */
-Route::get('/dich-vu', [ServiceController::class, 'index']);
+/* [GET] Route Service Index */
+Route::get('/{slug}', [ServiceController::class, 'index'])->name('service.index');
+/* [GET] Route Service Show */
 Route::get('/dich-vu/{slug}', [ServiceController::class, 'show'])->name('service.show');
 
 

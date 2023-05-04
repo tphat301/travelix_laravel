@@ -62,7 +62,7 @@
                         <select name="parent_id" id="choose_category" class="form-select col-md-6 col-lg-6 col-xl-6 col-6 select-cat-2">
                         <option value="">Chọn danh mục cấp 1</option>
                             @foreach ($categoryServiceLevel1 as $v1)
-                                <option value="{{ $v1->id }}" selected>{{ $v1->name }}</option>
+                                <option value="{{ $v1->id }}">{{ $v1->name }}</option>
                             @endforeach
                         </select>
                     </div>

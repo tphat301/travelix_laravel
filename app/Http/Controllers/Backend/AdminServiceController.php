@@ -102,7 +102,7 @@ class AdminServiceController extends Controller
                         return redirect('admin/service/create')->with('danger', 'File tải lên đã vượt quá 25MB');
                     } else {
                         $file1->move('public/backend/uploads', $nameFile1);
-                        $photo1 = 'public/backend/uploads/' . $nameFile1;
+                        $photo1 = $nameFile1;
                     }
                 }
             } else {

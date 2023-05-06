@@ -1,6 +1,6 @@
 @extends("admin.index")
 
-@section("title", "Danh sách danh mục")
+@section("title", "Danh sách tin tức")
 
 @section("content")
 
@@ -18,12 +18,12 @@
         </div>
     @endif
     <div class="bg-secondary rounded h-100 p-4">
-        <h6 class="mb-4 uppercase text-center text-[24px]">Danh sách danh mục dịch vụ</h6>
-        {!! Form::open(['url' => ['admin/category_service/action'], 'class' => ['card__body']]) !!}
+        <h6 class="mb-4 uppercase text-center text-[24px]">Danh sách tin tức</h6>
+        {!! Form::open(['url' => ['admin/news/action'], 'class' => ['card__body']]) !!}
             @csrf
             <div class="card__body--analytic mb-[12px]">
-                <a href="{{ request()->fullUrlWithQuery(['status' => 'active']) }}" class="card__body--active text-blue-600 mr-[8px]">Đang hoạt động ({{ $countCategoryService[0] }})</a>
-                <a href="{{ request()->fullUrlWithQuery(['status' => 'trash']) }}" class="card__body--trash text-red-600">Vô hiệu hóa ({{ $countCategoryService[1] }})</a>
+                <a href="{{ request()->fullUrlWithQuery(['status' => 'active']) }}" class="card__body--active text-blue-600 mr-[8px]">Đang hoạt động ({{ $countNew[0] }})</a>
+                <a href="{{ request()->fullUrlWithQuery(['status' => 'trash']) }}" class="card__body--trash text-red-600">Vô hiệu hóa ({{ $countNew[1] }})</a>
             </div>
             <div class="items-center flex">
                 <div class="card__body--status rounded inline-block border mr-2">
@@ -41,9 +41,8 @@
                     <tr>
                         <th><input class="form-check-input" type="checkbox" value="" id="check__all"></th>
                         <th scope="col">STT</th>
-                        <th scope="col">Hình ảnh</th>
-                        <th scope="col">Tên danh mục</th>
-                        <th scope="col">Cấp</th>
+                        <th scope="col">Ảnh</th>
+                        <th scope="col">Tiêu đề</th>
                         <th scope="col">Nổi bật</th>
                         <th scope="col">Trạng thái</th>
                         <th scope="col">Thời gian tạo</th>
@@ -52,12 +51,12 @@
                 </thead>
 
                 <tbody>
-                    @if ($categoryServices->total() > 0)
+                    @if ($news->total() > 0)
                         @php
                             $k = 0;
                         @endphp
 
-                        @foreach ($categoryServices as $k => $v)    
+                        @foreach ($news as $k => $v)    
                             @php
                                 $k++;
                             @endphp
@@ -68,29 +67,19 @@
                                 <th scope="row">{{ $k }}</th>
                                 <td>
                                     @if ($v->photo)
-                                        <a href="{{ route('admin.category_service.edit', $v->id) }}">
-                                            <img class="thumbs rounded" src="{{ asset('public/backend/uploads/'.$v->photo) }}" width="50" height="50" alt="">
+                                        <a href="{{ route('admin.news.edit', $v->id) }}">
+                                            <img class="thumbs rounded" src="{{ asset('public/backend/uploads/'.$v->photo) }}" alt="">
                                         </a>
                                     @else
-                                        <a href="{{ route('admin.category_service.edit', $v->id) }}">
+                                        <a href="{{ route('admin.news.edit', $v->id) }}">
                                             <img class="thumbs rounded" src="{{ asset('public/backend/img/img_error.png') }}" alt="">
                                         </a>
                                     @endif
                                 </td>
+                                <td><a href="{{ route('admin.news.edit', $v->id) }}">{{ $v->name }}</a></td>
                                 <td>
-                                    @if ($v->level == 1)
-                                        <a href="{{ route('admin.category_service.edit', $v->id) }}">{{ $v->name }}</a>
-                                    @endif
-                                    @if ($v->level == 2)
-                                        <a href="{{ route('admin.category_service2.edit', $v->id) }}">{{ $v->name }}</a>
-                                    @endif
+                                    <input type="checkbox" class="custom-control-input form-check-input show-checkbox-news remove-checkbox-news" data-id="{{ $v->id }}" data-show="noibat" {{ $v->state == 'noibat' ? 'checked' : ''}}>
                                 </td>
-                                <td><span>{{ $v->level }}</span></td>
-                                <td>@if ($v->status == 'trash')
-                                    <span></span>
-                                @else
-                                    <input type="checkbox" class="custom-control-input form-check-input show-checkbox-catservice remove-checkbox-catservice" data-id="{{ $v->id }}" data-show="noibat" {{ $v->state == 'noibat' ? 'checked' : ''}}>
-                                @endif</td>
                                 <td>@if ($v->status == 'active')
                                     <span class="text-success">Đang hoạt động</span>
                                     @else
@@ -99,18 +88,15 @@
                                 <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $v->created_at)->format('d-m-Y H:i:s') }}</td>
                                 @if ($v->status != 'trash')
                                     <td>
-                                        <a href="@if ($v->level == 1)
-                                            {!! route('admin.category_service.edit', $v->id) !!}
-                                        @else
-                                            {!! route('admin.category_service2.edit', $v->id) !!}
-                                        @endif" class="text-lime-600 m-[12px]"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="#" data-id="{{ $v->id }}" class="delete__catService text-red-700"><i class="fa-solid fa-trash pointer-events-none"></i></a>
+                                        <a href="{{ route('admin.news.copy', $v->id) }}" class="text-lime-600 m-[12px]"><i class="fa-solid fa-copy"></i></i></a>
+                                        <a href="{{ route('admin.news.edit', $v->id) }}" class="text-lime-600 m-[12px]"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="" data-id="{{ $v->id }}" class="delete__news text-red-700"><i class="fa-solid fa-trash pointer-events-none"></i></a>
                                     </td>
                                 @endif
                             </tr>
                         @endforeach
                     @else
-                        <tr><td colspan="12"><span class="text-red-600 block p-[12px]">Không có danh mục dịch vụ</span></td></tr>
+                        <tr><td colspan="12"><span class="text-red-600 block p-[12px]">Không có tin tức nào</span></td></tr>
                     @endif
                 </tbody>
             </table>
@@ -119,7 +105,9 @@
             @csrf
             @method('DELETE')
         {!! Form::close() !!}
-        {!! $categoryServices->links("admin.layout.pagination") !!}
+        
+        
+        {!! $news->links("admin.layout.pagination") !!}
     </div>
 </div>
 @endsection

@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Backend\AdminCategoryNewsController;
 use App\Http\Controllers\Backend\AdminCategoryService;
 use App\Http\Controllers\Backend\AdminCouponController;
 use App\Http\Controllers\Backend\AdminLinkController;
+use App\Http\Controllers\Backend\AdminNewsController;
 use App\Http\Controllers\Backend\AdminOrderController;
 use App\Http\Controllers\Backend\AdminServiceController;
 use App\Http\Controllers\Backend\AdminSettingController;
@@ -259,6 +261,57 @@ Route::middleware(['auth', 'password.confirm', 'CheckUserLogin'])->group(functio
     Route::post('admin/setting/store/{id?}', [AdminSettingController::class, 'store']);
     /* [GET] edit */
     Route::get('admin/setting/edit/{id}', [AdminSettingController::class, 'edit'])->name('admin.slogan.edit');
+
+
+    // ROUTE ADMIN NEWS
+    /* [GET] index */
+    Route::get('admin/news/index', [AdminNewsController::class, 'index']);
+    /* [GET] create */
+    Route::get('admin/news/create', [AdminNewsController::class, 'create']);
+    /* [POST] store */
+    Route::post('admin/news/store/{id?}', [AdminNewsController::class, 'store'])->name('admin.news.store');
+    /* [GET] edit */
+    Route::get('admin/news/edit/{id}', [AdminNewsController::class, 'edit'])->name('admin.news.edit');
+    /* [POST] action */
+    Route::post('admin/news/action', [AdminNewsController::class, 'action']);
+    /* [POST] edit ajax */
+    Route::post('admin/news/edit_ajax', [AdminNewsController::class, 'edit_ajax'])->name('admin.news.edit_ajax');
+    /* [POST] state */
+    Route::post('admin/news/state', [AdminNewsController::class, 'state']);
+    /* [POST] remove_state */
+    Route::post('admin/news/remove_state', [AdminNewsController::class, 'remove_state']);
+    /* [DELETE] delete */
+    Route::delete('admin/news/delete/{id}', [AdminNewsController::class, 'delete'])->name('admin.news.delete');
+    /* [GET] copy */
+    Route::get('admin/news/copy/{id}', [AdminNewsController::class, 'copy'])->name('admin.news.copy');
+
+
+    // CATEGORY NEWS LEVEL 1
+    /* [GET] index */
+    Route::get('admin/category_news/index', [AdminCategoryNewsController::class, 'index'])->name('admin.category_news.index');
+    /* [GET] edit */
+    Route::get('admin/category_news/edit/{id}', [AdminCategoryNewsController::class, 'edit'])->name('admin.category_news.edit');
+    /* [GET] create */
+    Route::get('admin/category_news/create', [AdminCategoryNewsController::class, 'create'])->name('admin.category_news.create');
+    /* [POST] store */
+    Route::post('admin/category_news/store/{id?}', [AdminCategoryNewsController::class, 'store'])->name('admin.category_news.store');
+    /* [POST] action */
+    Route::post('admin/category_news/action', [AdminCategoryNewsController::class, 'action'])->name('admin.category_news.action');
+    /* [POST] state */
+    Route::post('admin/category_news/state', [AdminCategoryNewsController::class, 'state']);
+    /* [POST] remove_state */
+    Route::post('admin/category_news/remove_state', [AdminCategoryNewsController::class, 'remove_state']);
+    /* [DELETE] delete */
+    Route::delete('admin/category_news/delete/{id}', [AdminCategoryNewsController::class, 'delete'])->name('admin.category_news.delete');
+
+
+    // CATEGORY NEWS LEVEL 2
+    /* [GET] create */
+    Route::get('admin/category_news2/create', [AdminCategoryNewsController::class, 'create_level2'])->name('admin.category_news2.create');
+    /* [GET] edit */
+    Route::get('admin/category_news2/edit/{id}', [AdminCategoryNewsController::class, 'edit_level2'])->name('admin.category_news2.edit');
+    /* [POST] store */
+    Route::post('admin/category_news2/store/{id?}', [AdminCategoryNewsController::class, 'store_level2'])->name('admin.category_news2.store');
 });
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

@@ -384,4 +384,9 @@
   width: calc(50% - 20px);
 }
 
+.select-cat-new {
+  width: calc(50% - 20px);
+  margin: 10px;
+}
+
 /*# sourceMappingURL=admin.css.map */

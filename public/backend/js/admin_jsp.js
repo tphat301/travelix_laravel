@@ -2,21 +2,36 @@ window.addEventListener('load', function () {
 
     let btnDeleteUser = document.querySelectorAll('.delete__user');
     var formDelete = document.forms['delete__form'];
-    [...btnDeleteUser].forEach(item => item.addEventListener('click', function (e) {
-        let  idNumber = this.dataset.id;
-        e.preventDefault();
-        formDelete.setAttribute('action', `http://localhost/travelix_laravel/admin/user/delete/${idNumber}`)
-        formDelete.submit();
-    }));
+    if(btnDeleteUser) {
+        [...btnDeleteUser].forEach(item => item.addEventListener('click', function (e) {
+            let  idNumber = this.dataset.id;
+            e.preventDefault();
+            formDelete.setAttribute('action', `http://localhost/travelix_laravel/admin/user/delete/${idNumber}`)
+            formDelete.submit();
+        }));
+    }
 
 
     let btnDeleteService = document.querySelectorAll('.delete__service');
+    if(btnDeleteService) {
     [...btnDeleteService].forEach(item => item.addEventListener('click', function (e) {
         let  idNumber = this.dataset.id;
         e.preventDefault();
         formDelete.setAttribute('action', `http://localhost/travelix_laravel/admin/service/delete/${idNumber}`)
         formDelete.submit();
     }));
+    }
+
+
+    let btnDeleteNews = document.querySelectorAll('.delete__news');
+    if(btnDeleteNews) {
+        [...btnDeleteNews].forEach(item => item.addEventListener('click', function (e) {
+            let  idNumber = this.dataset.id;
+            e.preventDefault();
+            formDelete.setAttribute('action', `http://localhost/travelix_laravel/admin/news/delete/${idNumber}`)
+            formDelete.submit();
+        }));
+    }
 
 
     let btnDeleteOrder = document.querySelectorAll('.delete__order');
@@ -47,6 +62,17 @@ window.addEventListener('load', function () {
             let  idNumber = this.dataset.id;
             e.preventDefault();
             formDelete.setAttribute('action', `http://localhost/travelix_laravel/admin/category_service/delete/${idNumber}`)
+            formDelete.submit();
+        }));
+    }
+
+
+    let btnDeleteCateoryNew = document.querySelectorAll('.delete__catNew');
+    if(btnDeleteCateoryNew) {
+        [...btnDeleteCateoryNew].forEach(item => item.addEventListener('click', function (e) {
+            let  idNumber = this.dataset.id;
+            e.preventDefault();
+            formDelete.setAttribute('action', `http://localhost/travelix_laravel/admin/category_news/delete/${idNumber}`)
             formDelete.submit();
         }));
     }

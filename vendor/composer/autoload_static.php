@@ -605,6 +605,7 @@ class ComposerStaticInit40c3cc463c6826488afe84bd2645da18
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Mail\\SendMail' => __DIR__ . '/../..' . '/app/Mail/SendMail.php',
+        'App\\Models\\CategoryPost' => __DIR__ . '/../..' . '/app/Models/CategoryPost.php',
         'App\\Models\\CategoryService' => __DIR__ . '/../..' . '/app/Models/CategoryService.php',
         'App\\Models\\Coupon' => __DIR__ . '/../..' . '/app/Models/Coupon.php',
         'App\\Models\\Gallery' => __DIR__ . '/../..' . '/app/Models/Gallery.php',

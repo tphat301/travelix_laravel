@@ -1,31 +1,3 @@
-{{-- @extends("welcome")
-
-@section("title", "Travelix | Trang chủ")
-
-@section("content")
-<div class="container">
-    @if ($services)
-    <div class="services d-flex">
-        @foreach ($services as $k => $v)    
-            <div class="card item" style="width: 18rem;">
-                <img src="{{ url($v->photo) }}" class="card-img-top" alt="{{ $v->name }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $v->name }}</h5>
-                    <div class="d-flex">
-                        <p class="card-text text-danger d-block" style="margin-right:12px;">Giá: {{ number_format($v->price, 0, ",", ".") }}VND</p>
-                        <p class="card-text text-secondary">{{ number_format($v->price_old, 0, ",", ".") }}VND</p>
-                    </div>
-                    <a href="{{ url('/order/create/'.$v->id) }}" class="btn btn-success">Thêm vào giỏ</a>
-                </div>
-            </div>
-        @endforeach
-    </div>
-    @endif
-    <a href="{{ url('/order/index') }}" class="text-decoration-none">Giỏ hàng của tôi ({{ Cart::count() }})</a>
-</div>
-@endsection --}}
-
-
 @extends("welcome")
 
 @section("title", "Travelix | Trang chủ")
@@ -49,44 +21,42 @@
                     <h2 class="intro_title text-center">{{ $vcat1->name }}</h2>
                     <p>{{ $slogan->slogan }}</p>
                         <div class="search_tabs_container mb-4">
-                            <div class="search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+                            <div class="search_tabs d-flex align-items-start justify-content-center">
                                 @foreach ($categoryServiceLevel2 as $kcat2 => $vcat2)
                                 @if ($vcat2->parent_id == $vcat1->id)
-                                    <div class="search_tab category_lv2 d-flex flex-row align-items-center justify-content-lg-center justify-content-start" data-idcat1="{{ $vcat1->id }}"  parentid2="{{$vcat2->id}}"><img src="{{ asset('public/frontend/images/'.$vcat1->photo) }}" alt="{{ $vcat2->name }}"><span>{{ $vcat2->name }}</span></div>
+                                    <div class="search_tab category_lv2 d-flex align-items-center justify-content-center" data-idcat1="{{ $vcat1->id }}"  parentid2="{{$vcat2->id}}"><img src="{{ asset('public/frontend/images/'.$vcat1->photo) }}" alt="{{ $vcat2->name }}"><span>{{ $vcat2->name }}</span></div>
                                 @endif
                                 @endforeach
                             </div>
-                            <div class="show_ser_cat">
-                                @if (count($services))
-                                    <div class="service_ajaxs">
-                                        @foreach ($services as $k => $v)
+                            @if (count($services))
+                                <div class="owl-page owl-carousel owl-theme show_ser_cat" data-xsm-items="2:30" data-sm-items="2:30" data-md-items="3:30" data-lg-items="3:30" data-xlg-items="3:30" data-rewind="1" data-autoplay="1" data-loop="0" data-lazyload="0" data-mousedrag="1" data-touchdrag="1" data-smartspeed="500" data-autoplayspeed="3500" data-dots="0" data-nav="0" data-navtext="<svg xmlns='https://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-chevron-left' width='44' height='45' viewBox='0 0 24 24' stroke-width='1.5' stroke='#2c3e50' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><polyline points='15 6 9 12 15 18' /></svg>|<svg xmlns='https://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-chevron-right' width='44' height='45' viewBox='0 0 24 24' stroke-width='1.5' stroke='#2c3e50' fill='none' stroke-linecap='round' stroke-linejoin='round'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><polyline points='9 6 15 12 9 18' /></svg>" data-navcontainer=".control-pronb">
+                                    @foreach ($services as $k => $v)
                                         @if ($v->parent_id1 == $vcat1->id) 
-                                        <div class="intro_col service_ajax">
-                                            <div class="intro_item">
-                                                <div class="intro_item_overlay"></div>
-                                                <div class="intro_item_background" style="background-image:url({{ asset('public/backend/uploads/'.$v->photo) }})"></div>
-                                                <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
-                                                    <div class="intro_date">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $v->created_at)->format('d/m/Y H:i:s') }}</div>
-                                                    <div class="button intro_button"><div class="button_bcg"></div><a href="{{ url('/order/create/'.$v->id) }}">Thêm vào giỏ<span></span><span></span><span></span></a></div>
-                                                    <div class="intro_center text-center">
-                                                        <h1 class="name_service text-split">{{ $v->name }}</h1>
-                                                        <div class="intro_price">Giá: {{ number_format($v->price, 0,",",".") }}VND</div>
-                                                        <div class="rating rating_4">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
+                                            <div class="intro_col service_ajax">
+                                                <div class="intro_item">
+                                                    <div class="intro_item_overlay"></div>
+                                                    <div class="intro_item_background" style="background-image:url({{ asset('public/backend/uploads/'.$v->photo) }})"></div>
+                                                    <div class="intro_item_content d-flex flex-column align-items-center justify-content-center">
+                                                        <div class="intro_date">{{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $v->created_at)->format('d/m/Y H:i:s') }}</div>
+                                                        <div class="button intro_button"><div class="button_bcg"></div><a href="{{ url('/order/create/'.$v->id) }}">Đăng ký dịch vụ<span></span><span></span><span></span></a></div>
+                                                        <div class="intro_center text-center">
+                                                            <h1 class="name_service text-split">{{ $v->name }}</h1>
+                                                            <div class="intro_price">Giá: {{ number_format($v->price, 0,",",".") }}VND</div>
+                                                            <div class="rating rating_4">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         @endif
-                                        @endforeach
-                                    </div>
-                                @endif
-                            </div>		
+                                    @endforeach
+                                </div>
+                            @endif	
                             <div class="load_ajax_service load_ajax_service-{{ $vcat1->id }}" data-idcat1="{{ $vcat1->id }}"></div>
                         </div>
                     @endif

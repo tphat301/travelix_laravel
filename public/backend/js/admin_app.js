@@ -206,6 +206,68 @@ $(document).ready(function () {
     }
 
 
+    // Click check add noibat news
+    if(isExist($('.show-checkbox-news'))) {
+        $('.show-checkbox-news').change(function() {
+            let id = $(this).data('id');
+            let show = $(this).data('show');
+            let $this = $(this);
+
+            $.ajax({
+				url: 'http://localhost/travelix_laravel/admin/news/state',
+				method: 'POST',
+				dataType: 'html',
+				data: {
+					id: id,
+					show: show,
+                    _token: $("input[name='_token']").val()
+				},
+				success: function()
+				{
+					if($this.is(':checked')) $this.prop('checked',false);
+					else $this.prop('checked',true);
+                    return false;
+				},
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }  
+			});
+        });
+    }
+
+
+    // Click check add noibat category news
+    if(isExist($('.show-checkbox-catNew'))) {
+        $('.show-checkbox-catNew').change(function() {
+            let id = $(this).data('id');
+            let show = $(this).data('show');
+            let $this = $(this);
+
+            $.ajax({
+				url: 'http://localhost/travelix_laravel/admin/category_news/state',
+				method: 'POST',
+				dataType: 'html',
+				data: {
+					id: id,
+					show: show,
+                    _token: $("input[name='_token']").val()
+				},
+				success: function()
+				{
+					if($this.is(':checked')) $this.prop('checked',false);
+					else $this.prop('checked',true);
+                    return false;
+				},
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }  
+			});
+        });
+    }
+
+
     // Click check remove noibat service
     if(isExist($('.remove-checkbox'))) {
         $('.remove-checkbox').change(function() {
@@ -234,6 +296,34 @@ $(document).ready(function () {
         });
     }
 
+
+    // Click check remove noibat news
+    if(isExist($('.remove-checkbox-news'))) {
+        $('.remove-checkbox-news').change(function() {
+            let id = $(this).data('id');
+            let $this = $(this);
+
+            $.ajax({
+				url: 'http://localhost/travelix_laravel/admin/news/remove_state',
+				method: 'POST',
+				dataType: 'html',
+				data: {
+					id: id,
+                    _token: $("input[name='_token']").val()
+				},
+				success: function()
+				{
+					if($this.is(':checked')) $this.prop('checked',false);
+					else $this.prop('checked',true);
+                    return false;
+				},
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }  
+			});
+        });
+    }
 
     // Click check remove noibat category service
     if(isExist($('.remove-checkbox-catservice'))) {
@@ -264,7 +354,36 @@ $(document).ready(function () {
     }
 
 
-    // Category load Ajax
+    // Click check remove noibat category new
+    if(isExist($('.remove-checkbox-catNew'))) {
+        $('.remove-checkbox-catNew').change(function() {
+            let id = $(this).data('id');
+            let $this = $(this);
+
+            $.ajax({
+				url: 'http://localhost/travelix_laravel/admin/category_news/remove_state',
+				method: 'POST',
+				dataType: 'html',
+				data: {
+					id: id,
+                    _token: $("input[name='_token']").val()
+				},
+				success: function()
+				{
+					if($this.is(':checked')) $this.prop('checked',false);
+					else $this.prop('checked',true);
+                    return false;
+				},
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }  
+			});
+        });
+    }
+
+
+    // Category load Ajax Service
     if(isExist($('.category_ajax'))) {
         $('.category_ajax').change(function() {
             let action = $(this).attr('id');
@@ -276,6 +395,33 @@ $(document).ready(function () {
             }
             $.ajax({
                 url: "http://localhost/travelix_laravel/admin/service/edit_ajax",
+                data: {action:action, id:id, _token: $("input[name='_token']").val(),},
+                method: "POST",
+                success: function(data) {
+                    $('#'+result).html(data);
+                    return false;
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
+            });
+        });
+    }
+
+
+    // Category load Ajax News
+    if(isExist($('.category_ajax-new'))) {
+        $('.category_ajax-new').change(function() {
+            let action = $(this).attr('id');
+            let id = $(this).val();
+            let result = '';
+            if(action == 'category_new1')
+            {
+                result = 'category_new2';
+            }
+            $.ajax({
+                url: "http://localhost/travelix_laravel/admin/news/edit_ajax",
                 data: {action:action, id:id, _token: $("input[name='_token']").val(),},
                 method: "POST",
                 success: function(data) {

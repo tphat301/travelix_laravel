@@ -111,7 +111,12 @@ h5 {
   font-size: 14px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
@@ -128,7 +133,8 @@ section {
   box-sizing: border-box;
 }
 
-.clear, .clearfix::after {
+.clear,
+.clearfix::after {
   clear: both;
 }
 
@@ -872,16 +878,23 @@ section {
 }
 
 .search_tabs {
-  height: 94px;
+  margin: auto;
+  margin-bottom: 24px;
+  height: 50px;
+  max-width: fit-content;
 }
 
 .search_tab {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  padding: 10px 30px;
   font-size: 14px;
   font-weight: 700;
   color: #2d2c2c;
   text-transform: uppercase;
   text-align: center;
   height: 100%;
+  margin-right: 10px;
+  border-radius: 4px;
   flex-grow: 1;
   background: #fff;
   cursor: pointer;
@@ -899,16 +912,6 @@ section {
   -ms-transition: all 200ms ease;
   -o-transition: all 200ms ease;
   transition: all 200ms ease;
-}
-
-.search_tab:first-child {
-  border-top-left-radius: 94px;
-  padding-left: 7px;
-}
-
-.search_tab:last-child {
-  border-top-right-radius: 94px;
-  padding-right: 0;
 }
 
 .search_tab.active {
@@ -2843,18 +2846,6 @@ section {
   margin-bottom: 60px;
 }
 
-.service_ajaxs {
-  display: flex;
-  flex-flow: wrap row;
-  width: calc(100% + 30px);
-  margin: 0 -15px;
-}
-
-.service_ajax {
-  width: calc(33.3333333333% - 30px);
-  margin: 0px 15px 30px 15px;
-}
-
 .menu_service > a {
   position: relative;
 }
@@ -2905,6 +2896,52 @@ section {
 .category_level1 > li:hover .category_level2 li {
   opacity: 1;
   visibility: visible;
+}
+
+.custom-logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-logo-link:before {
+  content: "";
+  width: 30px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: flash 2s alternate linear infinite;
+}
+
+@keyframes flash {
+  from {
+    transform: translate(-200px, 0);
+  }
+  to {
+    transform: translate(200px, 0);
+  }
+}
+.loads {
+  display: flex;
+  flex-flow: row wrap;
+  width: calc(100% + 30px);
+  margin: 0 -15px;
+}
+
+.load {
+  width: calc(33.3333333333% - 30px);
+  margin: 0 15px 30px 15px;
+}
+
+.btn-custom-dev {
+  display: block;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */

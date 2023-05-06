@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 04, 2023 lúc 06:33 PM
+-- Thời gian đã tạo: Th5 06, 2023 lúc 06:42 PM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 7.4.33
 
@@ -20,6 +20,45 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `travelix_laravel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `category_posts`
+--
+
+CREATE TABLE `category_posts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `parent_id` varchar(200) DEFAULT NULL,
+  `level` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `photo1` varchar(255) DEFAULT NULL,
+  `photo2` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `slogan` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `status` varchar(200) DEFAULT NULL,
+  `state` varchar(200) DEFAULT NULL,
+  `desc` mediumtext DEFAULT NULL,
+  `content` mediumtext DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `category_posts`
+--
+
+INSERT INTO `category_posts` (`id`, `name`, `parent_id`, `level`, `photo`, `photo1`, `photo2`, `slug`, `slogan`, `type`, `status`, `state`, `desc`, `content`, `options`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Danh mục tin tức cấp 1', '0', '1', '', '', '', 'danh-muc-tin-tuc-cap-1', '', 'tin-tuc', 'active', 'noibat', '', '', '', NULL, '2023-05-06 08:29:04', '2023-05-06 09:16:08'),
+(2, 'Danh mục tin tức cấp 2', '1', '2', '', '', '', 'danh-muc-tin-tuc-cap-2', '', 'tin-tuc', 'active', 'noibat', '', '', '', NULL, '2023-05-06 09:02:04', '2023-05-06 09:16:17'),
+(3, 'Danh mục tin tức 1.2', '0', '1', '', '', '', 'danh-muc-tin-tuc-12', '', 'tin-tuc', 'active', 'noibat', '', '', '', NULL, '2023-05-06 09:24:10', '2023-05-06 09:24:13'),
+(4, 'Danh mục tin tức cấp 2.2', '1', '2', '', '', '', 'danh-muc-tin-tuc-cap-22', '', 'tin-tuc', 'active', 'noibat', '', '', '', NULL, '2023-05-06 09:25:05', '2023-05-06 09:32:29'),
+(5, 'Danh mục tin tức 2.3', '1', '2', '', '', '', 'danh-muc-tin-tuc-23', '', 'tin-tuc', 'active', 'noibat', '', '', '', NULL, '2023-05-06 09:25:22', '2023-05-06 09:25:48'),
+(6, 'Danh mục tin tức 2.4', '3', '2', '', '', '', 'danh-muc-tin-tuc-24', '', 'tin-tuc', 'active', 'noibat', '', '', '', NULL, '2023-05-06 09:25:32', '2023-05-06 09:26:07');
 
 -- --------------------------------------------------------
 
@@ -968,7 +1007,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (129, '2023_04_25_144505_create_photos_table', 1),
 (130, '2023_04_25_145041_create_settings_table', 1),
 (131, '2023_04_25_145503_create_newsletters_table', 1),
-(134, '2023_05_02_040746_create_category_services_table', 2);
+(134, '2023_05_02_040746_create_category_services_table', 2),
+(135, '2023_05_06_132246_create_posts_table', 3),
+(136, '2023_05_06_132630_create_category_posts_table', 3);
 
 -- --------------------------------------------------------
 
@@ -1145,20 +1186,38 @@ INSERT INTO `photos` (`id`, `name`, `photo`, `link`, `type`, `status`, `desc`, `
 
 CREATE TABLE `posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(200) DEFAULT NULL,
-  `photo` varchar(200) DEFAULT NULL,
-  `address` varchar(200) DEFAULT NULL,
-  `office` varchar(200) DEFAULT NULL,
-  `slug` varchar(200) DEFAULT NULL,
-  `status` varchar(200) DEFAULT NULL,
-  `type` varchar(30) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `parent_id1` varchar(200) DEFAULT NULL,
+  `parent_id2` varchar(200) DEFAULT NULL,
+  `parent_id3` varchar(200) DEFAULT NULL,
+  `parent_id4` varchar(200) DEFAULT NULL,
+  `office` varchar(255) DEFAULT NULL,
+  `number` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `photo1` varchar(255) DEFAULT NULL,
+  `photo2` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `slogan` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
   `desc` mediumtext DEFAULT NULL,
   `content` mediumtext DEFAULT NULL,
   `options` mediumtext DEFAULT NULL,
+  `view` varchar(255) DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `posts`
+--
+
+INSERT INTO `posts` (`id`, `name`, `parent_id1`, `parent_id2`, `parent_id3`, `parent_id4`, `office`, `number`, `photo`, `photo1`, `photo2`, `slug`, `slogan`, `address`, `status`, `state`, `type`, `desc`, `content`, `options`, `view`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Tiêu đề của tin tức 1', '', '', '', '', '', '', 'tintuc1.jpg', '', '', 'tieu-de-cua-tin-tuc-1', '', NULL, 'active', 'noibat', 'tin-tuc', '<div>\r\n<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea!</div>\r\n</div>', '<p><strong><strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea! </strong></strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea!</p>', '', '', NULL, '2023-05-06 07:16:50', '2023-05-06 08:13:24'),
+(2, 'Tiêu đề của tin tức 2', '', '', '', '', '', '', 'tintuc1.jpg', '', '', 'tieu-de-cua-tin-tuc-2', '', '', 'active', 'noibat', 'tin-tuc', '<div>\r\n<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea!</div>\r\n</div>', '<p><strong><strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea! </strong></strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea!</p>', '', '', NULL, '2023-05-06 07:33:26', '2023-05-06 08:05:18');
 
 -- --------------------------------------------------------
 
@@ -12502,6 +12561,12 @@ INSERT INTO `wards` (`xaid`, `name`, `type`, `maqh`) VALUES
 --
 
 --
+-- Chỉ mục cho bảng `category_posts`
+--
+ALTER TABLE `category_posts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `category_services`
 --
 ALTER TABLE `category_services`
@@ -12637,6 +12702,12 @@ ALTER TABLE `wards`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `category_posts`
+--
+ALTER TABLE `category_posts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT cho bảng `category_services`
 --
 ALTER TABLE `category_services`
@@ -12664,7 +12735,7 @@ ALTER TABLE `galleries`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
 
 --
 -- AUTO_INCREMENT cho bảng `momos`
@@ -12706,7 +12777,7 @@ ALTER TABLE `photos`
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `services`

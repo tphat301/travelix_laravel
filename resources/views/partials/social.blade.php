@@ -49,6 +49,6 @@
     <span class="count-cart">{{ Cart::count() }}</span>
 </a>
 
-<div id="animated_div" class="btn-responsive"><a href="#">Để lại lời nhắn của bạn</a></div>
+<div id="animated_div" class="btn-responsive"><a href="lien-he">Để lại lời nhắn của bạn</a></div>
 
 <div class="scrollToTop"><img src="{{ asset('public/frontend/images/top.png') }}" alt="Go Top"></div>

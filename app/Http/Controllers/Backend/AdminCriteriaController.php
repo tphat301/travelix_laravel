@@ -3,16 +3,15 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\CategoryPost;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-class AdminNewsController extends Controller
+class AdminCriteriaController extends Controller
 {
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            session(["module_active" => "news"]);
+            session(["module_active" => "criteria"]);
             return $next($request);
         });
     }
@@ -24,49 +23,30 @@ class AdminNewsController extends Controller
         $status = $request->input('status');
         if ($status === 'trash') {
             $act = ['restore' => 'Khôi phục', 'force_delete' => 'Xóa vĩnh viễn'];
-            $news = Post::onlyTrashed()->where("name", "LIKE", "%{$keyword}%")->paginate(10);
+            $criteria = Post::onlyTrashed()->where("name", "LIKE", "%{$keyword}%")->paginate(10);
         } else {
             if ($request->input('keyword')) {
                 $keyword = $request->input('keyword');
             }
-            $news = Post::where(['type' => 'tin-tuc'])->where("name", "LIKE", "%{$keyword}%")->paginate(10);
+            $criteria = Post::where(['type' => 'nhan-xet'])->where("name", "LIKE", "%{$keyword}%")->paginate(10);
         }
-        $countNewActive = Post::where(['type' => 'tin-tuc'])->count();
-        $countNewTrash = Post::onlyTrashed()->count();
-        $countNew = [$countNewActive, $countNewTrash];
-        return view("admin.news.index", compact("news", "countNew", "act"));
+        $countCriteriaActive = Post::where(['type' => 'nhan-xet'])->count();
+        $countCriteriaTrash = Post::onlyTrashed()->count();
+        $countCriteria = [$countCriteriaActive, $countCriteriaTrash];
+        return view("admin.criteria.index", compact("criteria", "countCriteria", "act"));
     }
 
 
     public function create()
     {
-        return view('admin.news.create');
+        return view('admin.criteria.create');
     }
 
 
     public function edit($id)
     {
-        $newById = Post::find($id);
-        $categoryNewLevel1 = CategoryPost::where('status', 'active')->where('type', 'tin-tuc')->where('level', 1)->get();
-        $categoryNewLevel2 = CategoryPost::where('status', 'active')->where('type', 'tin-tuc')->where('level', 2)->get();
-        return view("admin.news.edit", compact("newById", "categoryNewLevel1", "categoryNewLevel2"));
-    }
-
-    public function edit_ajax(Request $request)
-    {
-        $action = $request->action;
-        $id = $request->id;
-        if (!empty($action)) {
-            $output = '';
-            if ($action == 'category_new1') {
-                $categoryNewsLevel2 = CategoryPost::where('parent_id', $id)->where('level', 2)->get();
-                $output .= '<option>Chọn danh mục cấp 2</option>';
-                foreach ($categoryNewsLevel2 as $v2) {
-                    $output .= '<option value="' . $v2->id . '">' . $v2->name . '</option>';
-                }
-            }
-            return $output;
-        }
+        $criteriaById = Post::where(['type' => 'nhan-xet', 'id' => $id])->first();
+        return view("admin.criteria.edit", compact("criteriaById"));
     }
 
 
@@ -167,11 +147,11 @@ class AdminNewsController extends Controller
                     "desc" => !empty($request->desc) ? $request->desc : '',
                     "content" => !empty($request->content) ? $request->content : '',
                     "options" => !empty($request->options) ? $request->options : '',
-                    "type" => 'tin-tuc',
+                    "type" => 'nhan-xet',
                     "status" => 'active'
                 ]
             );
-            return redirect('admin/news/index')->with('success', 'Thêm dữ liệu thành công');
+            return redirect('admin/criteria/index')->with('success', 'Thêm dữ liệu thành công');
         }
 
 
@@ -199,10 +179,10 @@ class AdminNewsController extends Controller
                 $sizeFile = $file->getSize();
                 $typeAllow = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
                 if (!in_array(strtolower($typeFile), $typeAllow)) {
-                    return redirect("admin/news/edit/{$id}")->with('danger', 'File không đúng định dạng jpg, jpeg, .gif, png, webp');
+                    return redirect("admin/criteria/edit/{$id}")->with('danger', 'File không đúng định dạng jpg, jpeg, .gif, png, webp');
                 } else {
                     if ($sizeFile > 26214400) {
-                        return redirect("admin/news/edit/{$id}")->with('danger', 'File tải lên đã vượt quá 25MB');
+                        return redirect("admin/criteria/edit/{$id}")->with('danger', 'File tải lên đã vượt quá 25MB');
                     } else {
                         $file->move('public/backend/uploads', $nameFile);
                         $photo = $nameFile;
@@ -219,10 +199,10 @@ class AdminNewsController extends Controller
                 $sizeFile1 = $file1->getSize();
                 $typeAllow1 = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
                 if (!in_array(strtolower($typeFile1), $typeAllow1)) {
-                    return redirect("admin/news/edit/{$id}")->with('danger', 'File không đúng định dạng jpg, jpeg, .gif, png, webp');
+                    return redirect("admin/criteria/edit/{$id}")->with('danger', 'File không đúng định dạng jpg, jpeg, .gif, png, webp');
                 } else {
                     if ($sizeFile1 > 26214400) {
-                        return redirect("admin/news/edit/{$id}")->with('danger', 'File tải lên đã vượt quá 25MB');
+                        return redirect("admin/criteria/edit/{$id}")->with('danger', 'File tải lên đã vượt quá 25MB');
                     } else {
                         $file1->move('public/backend/uploads', $nameFile1);
                         $photo1 = $nameFile1;
@@ -239,10 +219,10 @@ class AdminNewsController extends Controller
                 $sizeFile2 = $file2->getSize();
                 $typeAllow2 = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
                 if (!in_array(strtolower($typeFile2), $typeAllow2)) {
-                    return redirect("admin/news/edit/{$id}")->with('danger', 'File không đúng định dạng jpg, jpeg, .gif, png, webp');
+                    return redirect("admin/criteria/edit/{$id}")->with('danger', 'File không đúng định dạng jpg, jpeg, .gif, png, webp');
                 } else {
                     if ($sizeFile2 > 26214400) {
-                        return redirect("admin/news/edit/{$id}")->with('danger', 'File tải lên đã vượt quá 25MB');
+                        return redirect("admin/criteria/edit/{$id}")->with('danger', 'File tải lên đã vượt quá 25MB');
                     } else {
                         $file2->move('public/backend/uploads', $nameFile2);
                         $photo2 = $nameFile2;
@@ -272,10 +252,10 @@ class AdminNewsController extends Controller
                     "desc" => !empty($request->desc) ? $request->desc : '',
                     "content" => !empty($request->content) ? $request->content : '',
                     "options" => !empty($request->options) ? $request->options : '',
-                    "type" => 'tin-tuc',
+                    "type" => 'nhan-xet',
                 ]
             );
-            return redirect("admin/news/edit/{$id}")->with('success', 'Cập nhật dữ liệu thành công');
+            return redirect("admin/criteria/edit/{$id}")->with('success', 'Cập nhật dữ liệu thành công');
         }
     }
 
@@ -292,20 +272,20 @@ class AdminNewsController extends Controller
                     case 'restore':
                         Post::withTrashed()->whereIn('id', $listCheckbox)->update(['status' => 'active']);
                         Post::withTrashed()->whereIn('id', $listCheckbox)->restore();
-                        return redirect('admin/news/index')->with('success', 'Khôi phục tin tức thành công');
+                        return redirect('admin/criteria/index')->with('success', 'Khôi phục dữ liệu thành công');
                         break;
 
 
                     case 'delete':
                         Post::withTrashed()->whereIn('id', $listCheckbox)->update(['status' => 'trash']);
                         Post::destroy($listCheckbox);
-                        return redirect('admin/news/index')->with('success', 'Xóa tin tức thành công');
+                        return redirect('admin/criteria/index')->with('success', 'Xóa dữ liệu thành công');
                         break;
 
 
                     case 'force_delete':
                         Post::withTrashed()->whereIn('id', $listCheckbox)->forceDelete();
-                        return redirect('admin/news/index')->with('success', 'Xóa vĩnh viễn tin tức thành công');
+                        return redirect('admin/criteria/index')->with('success', 'Xóa vĩnh viễn dữ liệu thành công');
                         break;
 
                     default:
@@ -318,10 +298,10 @@ class AdminNewsController extends Controller
 
     public function delete($id)
     {
-        $newById = Post::find($id);
-        $newById->update(['status' => 'trash']);
-        $newById->delete();
-        return redirect('admin/news/index')->with('success', 'Xóa dịch vụ thành công');
+        $criteriaById = Post::find($id);
+        $criteriaById->update(['status' => 'trash']);
+        $criteriaById->delete();
+        return redirect('admin/criteria/index')->with('success', 'Xóa dữ liệu thành công');
     }
 
 
@@ -357,11 +337,11 @@ class AdminNewsController extends Controller
                     "desc" => $desc,
                     "content" => $content,
                     "state" => "",
-                    "type" => 'dich-vu',
+                    "type" => 'nhan-xet',
                     "status" => 'active',
                 ]
             );
-            return redirect("admin/news/index")->with('success', 'Sao chép dữ liệu thành công');
+            return redirect("admin/criteria/index")->with('success', 'Sao chép dữ liệu thành công');
         }
     }
 

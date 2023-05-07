@@ -22,6 +22,27 @@ window.addEventListener('load', function () {
     }));
     }
 
+    let btnDeleteCriteria = document.querySelectorAll('.criteria');
+    if(btnDeleteCriteria) {
+    [...btnDeleteCriteria].forEach(item => item.addEventListener('click', function (e) {
+        let  idNumber = this.dataset.id;
+        e.preventDefault();
+        formDelete.setAttribute('action', `http://localhost/travelix_laravel/admin/criteria/delete/${idNumber}`)
+        formDelete.submit();
+    }));
+    }
+
+
+    let btnDeleteNewsletter = document.querySelectorAll('.delete__newsletter');
+    if(btnDeleteNewsletter) {
+    [...btnDeleteNewsletter].forEach(item => item.addEventListener('click', function (e) {
+        let  idNumber = this.dataset.id;
+        e.preventDefault();
+        formDelete.setAttribute('action', `http://localhost/travelix_laravel/admin/newsletter/delete/${idNumber}`)
+        formDelete.submit();
+    }));
+    }
+
 
     let btnDeleteNews = document.querySelectorAll('.delete__news');
     if(btnDeleteNews) {

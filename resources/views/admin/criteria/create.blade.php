@@ -1,5 +1,5 @@
 @extends('admin.index')
-@section('title' , "Thêm tin tức")
+@section('title' , "Thêm nhận xét")
 
 @section("content")
 <div class="container-fluid pt-4 px-4">
@@ -15,12 +15,12 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    {!! Form::open(['url' => ['admin/news/store'.'/'], 'class' => ['card__form'], 'files' => true]) !!}
+    {!! Form::open(['url' => ['admin/criteria/store'.'/'], 'class' => ['card__form'], 'files' => true]) !!}
         @csrf
         <div class="row g-4">
             <div class="col-sm-12 col-xl-6">
                 <div class="bg-secondary rounded h-100 p-4">
-                    <h6 class="mb-4">Thêm tin tức</h6>
+                    <h6 class="mb-4">Thêm nhận xét</h6>
                     <div class="mb-3">
                         {!! Form::label('slug', 'Tên đường dẫn:', ['class'=>['card__label--slug','col-sm-4', 'col-form-label']]); !!}
                         {!! Form::text('slug', '', ['class'=>['card__slug', 'slug__type', 'form-control'] ,'placeholder'=>'Tên đường dẫn']) !!}
@@ -74,10 +74,10 @@
                         {!! Form::label('desc', 'Mô tả:', ['class'=>['card__label--desc','col-sm-4', 'col-form-label']]); !!}
                         {!! Form::textarea('desc', '', ['class' => ['medium_text','card__desc'], 'placeholder' => 'Mô tả']) !!}
                     </div>
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         {!! Form::label('content', 'Nội dung:', ['class'=>['card__label--content','col-sm-4', 'col-form-label']]); !!}
                         {!! Form::textarea('content', '', ['class' => ['medium_text','card__content'], 'placeholder' => 'Nội dung']) !!}
-                    </div>
+                    </div> --}}
                     {!! Form::submit("Thêm", ["class"=>["btn-create", "card__btn--service","btn", "btn-danger" ,"mt-[12px]", "p-[12px]", "rounded", "text-white"], "type"=>"submit"]) !!}
                 </div>
             </div>
@@ -87,12 +87,12 @@
                     <img src="{{ asset('public/backend/img/img_error.png') }}" class="card__img card__img--dev">
                     {!! Form::file('photo', ['class' => ['card__file', 'form-control','bg-dark', 'mt-2']]) !!}
                 </div>
-                {{-- <div class="mb-3">
-                    <h3 class="mb-2 mt-2 text-center uppercase">Hình ảnh 2</h3>
+                <div class="mb-3">
+                    <h3 class="mb-2 mt-2 text-center uppercase">Hình ảnh icon</h3>
                     <img src="{{ asset('public/backend/img/img_error.png') }}" class="card__img1 card__img--dev">
                     {!! Form::file('photo1', ['class' => ['card__file1', 'form-control','bg-dark', 'mt-2']]) !!}
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <h3 class="mb-2 mt-2 text-center uppercase">Hình ảnh 3</h3>
                     <img src="{{ asset('public/backend/img/img_error.png') }}" class="card__img2 card__img--dev">
                     {!! Form::file('photo2', ['class' => ['card__file2', 'form-control','bg-dark', 'mt-2']]) !!}

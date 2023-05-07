@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 07, 2023 lúc 12:52 PM
--- Phiên bản máy phục vụ: 10.4.25-MariaDB
--- Phiên bản PHP: 7.4.30
+-- Thời gian đã tạo: Th5 07, 2023 lúc 04:49 PM
+-- Phiên bản máy phục vụ: 10.4.27-MariaDB
+-- Phiên bản PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,20 +29,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `category_posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parent_id` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `level` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slogan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `desc` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `parent_id` varchar(200) DEFAULT NULL,
+  `level` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `photo1` varchar(255) DEFAULT NULL,
+  `photo2` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `slogan` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `status` varchar(200) DEFAULT NULL,
+  `state` varchar(200) DEFAULT NULL,
+  `desc` mediumtext DEFAULT NULL,
+  `content` mediumtext DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -58,7 +58,9 @@ INSERT INTO `category_posts` (`id`, `name`, `parent_id`, `level`, `photo`, `phot
 (3, 'Danh mục tin tức 1.2', '0', '1', '', '', '', 'danh-muc-tin-tuc-12', '', 'tin-tuc', 'active', 'noibat', '', '', '', NULL, '2023-05-06 09:24:10', '2023-05-06 09:24:13'),
 (4, 'Danh mục tin tức cấp 2.2', '1', '2', '', '', '', 'danh-muc-tin-tuc-cap-22', '', 'tin-tuc', 'active', 'noibat', '', '', '', NULL, '2023-05-06 09:25:05', '2023-05-06 09:32:29'),
 (5, 'Danh mục tin tức 2.3', '1', '2', '', '', '', 'danh-muc-tin-tuc-23', '', 'tin-tuc', 'active', 'noibat', '', '', '', NULL, '2023-05-06 09:25:22', '2023-05-06 09:25:48'),
-(6, 'Danh mục tin tức 2.4', '3', '2', '', '', '', 'danh-muc-tin-tuc-24', '', 'tin-tuc', 'active', 'noibat', '', '', '', NULL, '2023-05-06 09:25:32', '2023-05-06 09:26:07');
+(6, 'Danh mục tin tức 2.4', '3', '2', '', '', '', 'danh-muc-tin-tuc-24', '', 'tin-tuc', 'active', 'noibat', '', '', '', NULL, '2023-05-06 09:25:32', '2023-05-06 09:26:07'),
+(7, 'Danh mục tin tức 3', '0', '1', '', '', '', 'danh-muc-tin-tuc-3', '', 'tin-tuc', 'active', 'noibat', '', '', '', NULL, '2023-05-07 04:44:24', '2023-05-07 04:47:51'),
+(8, 'Danh mục tin tức 1.6', '0', '1', '', '', '', 'danh-muc-tin-tuc-16', '', 'tin-tuc', 'active', 'noibat', '', '', '', NULL, '2023-05-07 04:54:28', '2023-05-07 04:54:31');
 
 -- --------------------------------------------------------
 
@@ -68,20 +70,20 @@ INSERT INTO `category_posts` (`id`, `name`, `parent_id`, `level`, `photo`, `phot
 
 CREATE TABLE `category_services` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `parent_id` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `level` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `brand` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `desc` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parent_id` varchar(200) DEFAULT NULL,
+  `level` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `brand` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `photo1` varchar(255) DEFAULT NULL,
+  `photo2` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `status` varchar(200) DEFAULT NULL,
+  `state` varchar(200) DEFAULT NULL,
+  `desc` mediumtext DEFAULT NULL,
+  `content` mediumtext DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -110,10 +112,10 @@ INSERT INTO `category_services` (`id`, `parent_id`, `level`, `name`, `brand`, `p
 --
 
 CREATE TABLE `citys` (
-  `matp` varchar(5) CHARACTER SET utf8 NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `type` varchar(30) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+  `matp` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `type` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci ROW_FORMAT=COMPACT;
 
 --
 -- Đang đổ dữ liệu cho bảng `citys`
@@ -192,15 +194,15 @@ INSERT INTO `citys` (`matp`, `name`, `type`) VALUES
 
 CREATE TABLE `coupons` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `code` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code_product` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `discount` enum('price','percent') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `qty` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `timestart` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `timeend` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code` varchar(200) DEFAULT NULL,
+  `code_product` varchar(200) DEFAULT NULL,
+  `discount` enum('price','percent') DEFAULT NULL,
+  `status` varchar(200) DEFAULT NULL,
+  `qty` varchar(200) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `timestart` varchar(200) DEFAULT NULL,
+  `timeend` varchar(200) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -213,11 +215,11 @@ CREATE TABLE `coupons` (
 --
 
 CREATE TABLE `districts` (
-  `maqh` varchar(5) CHARACTER SET utf8 NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `type` varchar(30) CHARACTER SET utf8 NOT NULL,
-  `matp` varchar(5) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `maqh` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `type` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `matp` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `districts`
@@ -946,11 +948,11 @@ INSERT INTO `districts` (`maqh`, `name`, `type`, `matp`) VALUES
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(200) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -962,13 +964,13 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `galleries` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `file_attach` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `links_video` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `status` varchar(200) DEFAULT NULL,
+  `file_attach` varchar(200) DEFAULT NULL,
+  `links_video` mediumtext DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -982,7 +984,7 @@ CREATE TABLE `galleries` (
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1019,11 +1021,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `momos` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `fullname` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bank` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `total` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fullname` varchar(200) DEFAULT NULL,
+  `bank` varchar(200) DEFAULT NULL,
+  `total` varchar(200) DEFAULT NULL,
+  `status` varchar(200) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1037,19 +1039,27 @@ CREATE TABLE `momos` (
 
 CREATE TABLE `newsletters` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `fullname` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `subject` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `notes` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fullname` varchar(200) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `phone` varchar(200) DEFAULT NULL,
+  `address` varchar(200) DEFAULT NULL,
+  `status` varchar(200) DEFAULT NULL,
+  `subject` mediumtext DEFAULT NULL,
+  `content` mediumtext DEFAULT NULL,
+  `notes` mediumtext DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `newsletters`
+--
+
+INSERT INTO `newsletters` (`id`, `fullname`, `email`, `phone`, `address`, `status`, `subject`, `content`, `notes`, `options`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, 'Đỗ Lâm Thành Phát', 'dolamthanhphat@gmail.com', '0704138356', 'Long An', 'active', NULL, NULL, NULL, NULL, NULL, '2023-05-07 06:57:46', '2023-05-07 06:57:46'),
+(2, 'Nguyễn Thanh Khang', 'nguyenthanhkhang@gmail.com', '0987654321', 'Long An', 'trash', NULL, NULL, '&lt;script&gt;alert(\'I am a hacker\')&lt;/script&gt;', NULL, '2023-05-07 07:47:37', '2023-05-07 07:21:06', '2023-05-07 07:47:37');
 
 -- --------------------------------------------------------
 
@@ -1059,17 +1069,17 @@ CREATE TABLE `newsletters` (
 
 CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `fullname` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bank` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `phone` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `total` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `notes` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fullname` varchar(200) DEFAULT NULL,
+  `code` varchar(200) DEFAULT NULL,
+  `bank` varchar(200) DEFAULT NULL,
+  `status` varchar(200) DEFAULT NULL,
+  `email` varchar(200) DEFAULT NULL,
+  `address` varchar(200) DEFAULT NULL,
+  `phone` varchar(200) DEFAULT NULL,
+  `total` varchar(200) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `notes` mediumtext DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1090,18 +1100,18 @@ INSERT INTO `orders` (`id`, `fullname`, `code`, `bank`, `status`, `email`, `addr
 
 CREATE TABLE `pages` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo1` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo2` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo3` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo4` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slogan` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `desc` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `photo1` varchar(200) DEFAULT NULL,
+  `photo2` varchar(200) DEFAULT NULL,
+  `photo3` varchar(200) DEFAULT NULL,
+  `photo4` varchar(200) DEFAULT NULL,
+  `slogan` varchar(200) DEFAULT NULL,
+  `slug` varchar(200) DEFAULT NULL,
+  `status` varchar(200) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `desc` mediumtext DEFAULT NULL,
+  `content` mediumtext DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1126,8 +1136,8 @@ INSERT INTO `pages` (`id`, `name`, `photo1`, `photo2`, `photo3`, `photo4`, `slog
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `token` varchar(200) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1139,11 +1149,11 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_type` varchar(200) NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(200) NOT NULL,
+  `token` varchar(64) NOT NULL,
+  `abilities` text DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1157,14 +1167,14 @@ CREATE TABLE `personal_access_tokens` (
 
 CREATE TABLE `photos` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `link` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `desc` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `photo` varchar(200) DEFAULT NULL,
+  `link` varchar(200) DEFAULT NULL,
+  `type` varchar(200) DEFAULT NULL,
+  `status` varchar(200) DEFAULT NULL,
+  `desc` mediumtext DEFAULT NULL,
+  `content` mediumtext DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1186,26 +1196,26 @@ INSERT INTO `photos` (`id`, `name`, `photo`, `link`, `type`, `status`, `desc`, `
 
 CREATE TABLE `posts` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parent_id1` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parent_id2` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parent_id3` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parent_id4` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `office` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slogan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `desc` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `view` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `parent_id1` varchar(200) DEFAULT NULL,
+  `parent_id2` varchar(200) DEFAULT NULL,
+  `parent_id3` varchar(200) DEFAULT NULL,
+  `parent_id4` varchar(200) DEFAULT NULL,
+  `office` varchar(255) DEFAULT NULL,
+  `number` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `photo1` varchar(255) DEFAULT NULL,
+  `photo2` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `slogan` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `desc` mediumtext DEFAULT NULL,
+  `content` mediumtext DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `view` varchar(255) DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1217,7 +1227,12 @@ CREATE TABLE `posts` (
 
 INSERT INTO `posts` (`id`, `name`, `parent_id1`, `parent_id2`, `parent_id3`, `parent_id4`, `office`, `number`, `photo`, `photo1`, `photo2`, `slug`, `slogan`, `address`, `status`, `state`, `type`, `desc`, `content`, `options`, `view`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 'Tiêu đề của tin tức 1', '1', '2', '', '', '', '', 'tintuc1.jpg', '', '', 'tieu-de-cua-tin-tuc-1', '', NULL, 'active', 'noibat', 'tin-tuc', '<div>\r\n<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea!</div>\r\n</div>', '<p><strong><strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea! </strong></strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea!</p>', '', '', NULL, '2023-05-06 07:16:50', '2023-05-06 22:44:24'),
-(2, 'Tiêu đề của tin tức 2', '3', '6', '', '', '', '', 'tintuc1.jpg', '', '', 'tieu-de-cua-tin-tuc-2', '', '', 'active', 'noibat', 'tin-tuc', '<div>\r\n<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea!</div>\r\n</div>', '<p><strong><strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea! </strong></strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea!</p>', '', '', NULL, '2023-05-06 07:33:26', '2023-05-06 22:44:47');
+(2, 'Tiêu đề của tin tức 2', '3', '6', '', '', '', '', 'tintuc1.jpg', '', '', 'tieu-de-cua-tin-tuc-2', '', '', 'active', 'noibat', 'tin-tuc', '<div>\r\n<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea!</div>\r\n</div>', '<p><strong><strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea! </strong></strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero quos reiciendis vitae omnis, molestiae maiores repudiandae tempore minus quae, eaque nostrum quisquam at tenetur totam, neque consequuntur numquam ea!</p>', '', '', NULL, '2023-05-06 07:33:26', '2023-05-06 22:44:47'),
+(3, 'Tiêu đề tin tức 3', '7', 'Chọn danh mục cấp 2', '', '', '', '', 'tintuc2.jpg', '', '', 'tieu-de-tin-tuc-3', '', NULL, 'active', 'noibat', 'tin-tuc', '<div>\r\n<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus vero illum commodi beatae perferendis ipsam iste dolore a repellat. Blanditiis id culpa aliquid aperiam unde soluta dignissimos et, eligendi earum?</div>\r\n</div>', '<p><strong>Lorem ipsum dolor sit amet </strong>consectetur adipisicing elit. Natus vero illum commodi beatae perferendis ipsam iste dolore a repellat. Blanditiis id culpa aliquid aperiam unde soluta dignissimos et, eligendi earum?&nbsp; Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus vero illum commodi beatae perferendis ipsam iste dolore a repellat. Blanditiis id culpa aliquid aperiam unde soluta dignissimos et, eligendi earum?</p>', '', '', NULL, '2023-05-07 04:40:19', '2023-05-07 04:47:01'),
+(4, 'Tiêu đề tin tức 4', '8', 'Chọn danh mục cấp 2', '', '', '', '', 'tintuc3.jpg', '', '', 'tieu-de-tin-tuc-4', '', NULL, 'active', 'noibat', 'tin-tuc', '<div>\r\n<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus vero illum commodi beatae perferendis ipsam iste dolore a repellat.</div>\r\n</div>\r\n<div class=\"ddict_btn\" style=\"top: 43px; left: 711.016px;\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/logo/48.png\" /></div>', '<div>\r\n<div><strong>Lorem ipsum </strong>dolor sit amet consectetur adipisicing elit. Natus vero illum commodi beatae perferendis ipsam iste dolore a repellat. Blanditiis id culpa aliquid aperiam unde soluta dignissimos et, eligendi earum?</div>\r\n</div>', '', '', NULL, '2023-05-07 04:53:53', '2023-05-07 04:55:00'),
+(5, 'Thái Thị Nhàn', '', '', '', '', '', '', 'criteria.jpg', 'backpack.png', '', 'thai-thi-nhan', '', NULL, 'active', 'noibat', 'nhan-xet', '<p>Dịch vụ tốt, c&oacute; c&aacute;c ch&iacute;nh s&aacute;ch ưu đ&atilde;i cho kh&aacute;ch h&agrave;ng đ&aacute;nh gi&aacute; 5 sao cho website</p>', '<p>&nbsp;</p>\r\n<div class=\"ddict_btn\" style=\"top: -14px; left: 702.422px;\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/logo/48.png\" /></div>', '', '', NULL, '2023-05-07 05:55:46', '2023-05-07 05:58:58'),
+(6, 'Nguyễn Ngọc Quỳnh Như', '', '', '', '', '', '', 'test_2.jpg', 'island_t.png', '', 'nguyen-ngoc-quynh-nhu', '', '', 'active', 'noibat', 'nhan-xet', '<p>Dịch vụ tốt, c&oacute; c&aacute;c ch&iacute;nh s&aacute;ch ưu đ&atilde;i cho kh&aacute;ch h&agrave;ng đ&aacute;nh gi&aacute; 5 sao cho website</p>', '', '', '', NULL, '2023-05-07 05:59:07', '2023-05-07 06:08:18'),
+(7, 'Thái Thị Nhàn(2)', NULL, NULL, NULL, NULL, '', '', 'criteria.jpg', 'backpack.png', '', 'thai-thi-nhan', '', '', 'trash', 'noibat', 'nhan-xet', '<p>Dịch vụ tốt, c&oacute; c&aacute;c ch&iacute;nh s&aacute;ch ưu đ&atilde;i cho kh&aacute;ch h&agrave;ng đ&aacute;nh gi&aacute; 5 sao cho website</p>', '<p>&nbsp;</p>\r\n<div class=\"ddict_btn\" style=\"top: -14px; left: 702.422px;\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/logo/48.png\" /></div>', NULL, NULL, '2023-05-07 06:20:27', '2023-05-07 06:09:50', '2023-05-07 06:20:27');
 
 -- --------------------------------------------------------
 
@@ -1227,27 +1242,27 @@ INSERT INTO `posts` (`id`, `name`, `parent_id1`, `parent_id2`, `parent_id3`, `pa
 
 CREATE TABLE `services` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `parent_id1` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parent_id2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parent_id3` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `parent_id4` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `brand` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `photo2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `qty` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `desc` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `price` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `price_old` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `discount` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parent_id1` varchar(200) DEFAULT NULL,
+  `parent_id2` varchar(255) DEFAULT NULL,
+  `parent_id3` varchar(255) DEFAULT NULL,
+  `parent_id4` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `brand` varchar(255) DEFAULT NULL,
+  `photo` varchar(255) DEFAULT NULL,
+  `photo1` varchar(255) DEFAULT NULL,
+  `photo2` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `code` varchar(30) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `status` varchar(200) DEFAULT NULL,
+  `state` varchar(255) DEFAULT NULL,
+  `qty` varchar(200) DEFAULT NULL,
+  `desc` mediumtext DEFAULT NULL,
+  `content` mediumtext DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `price` varchar(200) DEFAULT NULL,
+  `price_old` varchar(200) DEFAULT NULL,
+  `discount` varchar(200) DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1273,10 +1288,10 @@ INSERT INTO `services` (`id`, `parent_id1`, `parent_id2`, `parent_id3`, `parent_
 
 CREATE TABLE `settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `copyright` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `address` varchar(200) DEFAULT NULL,
+  `copyright` varchar(200) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1296,19 +1311,19 @@ INSERT INTO `settings` (`id`, `name`, `address`, `copyright`, `options`, `create
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `photo` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `username` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(12) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `level` enum('1','2') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` enum('active','trash') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `role` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `google_id` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `author` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(200) NOT NULL,
+  `photo` varchar(200) DEFAULT NULL,
+  `username` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `phone` varchar(12) DEFAULT NULL,
+  `level` enum('1','2') NOT NULL,
+  `status` enum('active','trash') DEFAULT NULL,
+  `role` varchar(200) DEFAULT NULL,
+  `google_id` varchar(200) DEFAULT NULL,
+  `author` varchar(200) DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(200) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -1329,13 +1344,13 @@ INSERT INTO `users` (`id`, `name`, `photo`, `username`, `email`, `phone`, `level
 
 CREATE TABLE `videos` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `links_video` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `desc` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `content` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `links_video` mediumtext DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `status` varchar(200) DEFAULT NULL,
+  `type` varchar(30) DEFAULT NULL,
+  `desc` mediumtext DEFAULT NULL,
+  `content` mediumtext DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1349,12 +1364,12 @@ CREATE TABLE `videos` (
 
 CREATE TABLE `vnpays` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `fullname` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `bank` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `total` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fullname` varchar(200) DEFAULT NULL,
+  `bank` varchar(200) DEFAULT NULL,
+  `code` varchar(200) DEFAULT NULL,
+  `total` varchar(200) DEFAULT NULL,
+  `status` varchar(200) DEFAULT NULL,
+  `options` mediumtext DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1374,11 +1389,11 @@ INSERT INTO `vnpays` (`id`, `fullname`, `bank`, `code`, `total`, `status`, `opti
 --
 
 CREATE TABLE `wards` (
-  `xaid` varchar(5) CHARACTER SET utf8 NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `type` varchar(30) CHARACTER SET utf8 NOT NULL,
-  `maqh` varchar(5) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `xaid` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `type` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `maqh` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `wards`
@@ -12705,7 +12720,7 @@ ALTER TABLE `wards`
 -- AUTO_INCREMENT cho bảng `category_posts`
 --
 ALTER TABLE `category_posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `category_services`
@@ -12747,7 +12762,7 @@ ALTER TABLE `momos`
 -- AUTO_INCREMENT cho bảng `newsletters`
 --
 ALTER TABLE `newsletters`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
@@ -12777,7 +12792,7 @@ ALTER TABLE `photos`
 -- AUTO_INCREMENT cho bảng `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `services`

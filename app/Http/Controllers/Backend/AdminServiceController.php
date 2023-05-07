@@ -363,20 +363,20 @@ class AdminServiceController extends Controller
                     case 'restore':
                         Service::withTrashed()->whereIn('id', $listCheckbox)->update(['status' => 'active']);
                         Service::withTrashed()->whereIn('id', $listCheckbox)->restore();
-                        return redirect('admin/service/index')->with('success', 'Khôi phục dịch vụ thành công');
+                        return redirect('admin/service/index')->with('success', 'Khôi phục dữ liệu thành công');
                         break;
 
 
                     case 'delete':
                         Service::withTrashed()->whereIn('id', $listCheckbox)->update(['status' => 'trash']);
                         Service::destroy($listCheckbox);
-                        return redirect('admin/service/index')->with('success', 'Xóa dịch vụ thành công');
+                        return redirect('admin/service/index')->with('success', 'Xóa dữ liệu thành công');
                         break;
 
 
                     case 'force_delete':
                         Service::withTrashed()->whereIn('id', $listCheckbox)->forceDelete();
-                        return redirect('admin/service/index')->with('success', 'Xóa vĩnh viễn dịch vụ thành công');
+                        return redirect('admin/service/index')->with('success', 'Xóa vĩnh viễn dữ liệu thành công');
                         break;
 
                     default:
@@ -391,7 +391,7 @@ class AdminServiceController extends Controller
         $serviceById = Service::find($id);
         $serviceById->update(['status' => 'trash']);
         $serviceById->delete();
-        return redirect('admin/service/index')->with('success', 'Xóa dịch vụ thành công');
+        return redirect('admin/service/index')->with('success', 'Xóa dữ liệu thành công');
     }
 
     public function state(Request $request)

@@ -3,8 +3,10 @@
 use App\Http\Controllers\Backend\AdminCategoryNewsController;
 use App\Http\Controllers\Backend\AdminCategoryService;
 use App\Http\Controllers\Backend\AdminCouponController;
+use App\Http\Controllers\Backend\AdminCriteriaController;
 use App\Http\Controllers\Backend\AdminLinkController;
 use App\Http\Controllers\Backend\AdminNewsController;
+use App\Http\Controllers\Backend\AdminNewsletterController;
 use App\Http\Controllers\Backend\AdminOrderController;
 use App\Http\Controllers\Backend\AdminServiceController;
 use App\Http\Controllers\Backend\AdminSettingController;
@@ -14,6 +16,7 @@ use App\Http\Controllers\Backend\AdminUserController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\MomoController;
 use App\Http\Controllers\Frontend\NewsController;
+use App\Http\Controllers\Frontend\NewsletterController;
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\ServiceController;
@@ -112,6 +115,9 @@ Route::get('dich-vu/{slug}', [ServiceController::class, 'show'])->name('service.
 Route::get('tin-tuc', [NewsController::class, 'index'])->name('news.index');
 /* [GET] Route News Show */
 Route::get('tin-tuc/{slug}', [NewsController::class, 'show'])->name('news.show');
+
+// NEWSLETTER FORM
+Route::post('newsletter/store', [NewsletterController::class, 'store'])->name('newsletter.store');
 
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -268,7 +274,6 @@ Route::middleware(['auth', 'password.confirm', 'CheckUserLogin'])->group(functio
     /* [GET] edit */
     Route::get('admin/setting/edit/{id}', [AdminSettingController::class, 'edit'])->name('admin.slogan.edit');
 
-
     // ROUTE ADMIN NEWS
     /* [GET] index */
     Route::get('admin/news/index', [AdminNewsController::class, 'index']);
@@ -318,6 +323,37 @@ Route::middleware(['auth', 'password.confirm', 'CheckUserLogin'])->group(functio
     Route::get('admin/category_news2/edit/{id}', [AdminCategoryNewsController::class, 'edit_level2'])->name('admin.category_news2.edit');
     /* [POST] store */
     Route::post('admin/category_news2/store/{id?}', [AdminCategoryNewsController::class, 'store_level2'])->name('admin.category_news2.store');
+
+    // ROUTE ADMIN CRITERIA
+    /* [GET] index */
+    Route::get('admin/criteria/index', [AdminCriteriaController::class, 'index']);
+    /* [GET] create */
+    Route::get('admin/criteria/create', [AdminCriteriaController::class, 'create']);
+    /* [POST] store */
+    Route::post('admin/criteria/store/{id?}', [AdminCriteriaController::class, 'store'])->name('admin.criteria.store');
+    /* [GET] edit */
+    Route::get('admin/criteria/edit/{id}', [AdminCriteriaController::class, 'edit'])->name('admin.criteria.edit');
+    /* [POST] action */
+    Route::post('admin/criteria/action', [AdminCriteriaController::class, 'action']);
+    /* [POST] state */
+    Route::post('admin/criteria/state', [AdminCriteriaController::class, 'state']);
+    /* [POST] remove_state */
+    Route::post('admin/criteria/remove_state', [AdminCriteriaController::class, 'remove_state']);
+    /* [DELETE] delete */
+    Route::delete('admin/criteria/delete/{id}', [AdminCriteriaController::class, 'delete'])->name('admin.criteria.delete');
+    /* [GET] copy */
+    Route::get('admin/criteria/copy/{id}', [AdminCriteriaController::class, 'copy'])->name('admin.criteria.copy');
+
+
+    // ROUTE ADMIN NEWSLETTER
+    /* [GET] index */
+    Route::get('admin/newsletter/index', [AdminNewsletterController::class, 'index'])->name('admin.newsletter.index');
+    /* [GET] create */
+    Route::get('admin/newsletter/create', [AdminNewsletterController::class, 'create'])->name('admin.newsletter.create');
+    /* [GET] edit */
+    Route::get('admin/newsletter/edit/{id}', [AdminNewsletterController::class, 'edit'])->name('admin.newsletter.edit');
+    /* [DELETE] delete */
+    Route::delete('admin/newsletter/delete/{id}', [AdminNewsletterController::class, 'delete'])->name('admin.newsletter.delete');
 });
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

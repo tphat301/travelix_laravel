@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\CategoryPost;
 use App\Models\CategoryService;
+use App\Models\Newsletter;
 use App\Models\Page;
 use App\Models\Photo;
 use App\Models\Setting;
@@ -33,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
         // Setting covert from JSON to Array
         json_decode(Setting::first()->options, true) !== null ? $settingConvert = json_decode(Setting::first()->options, true) : $settingConvert = '';
         $slideshows = Photo::where('type', 'slideshow')->orderBy('id', 'ASC')->get();
+        $countNewsletter = Newsletter::get();
         $categoryServiceLevel1 = CategoryService::where("level", 1)->where('status', 'active')->where('state', 'noibat')->get();
         $categoryServiceLevel2 = CategoryService::where("level", 2)->where('status', 'active')->where('state', 'noibat')->get();
         $categoryNewLevel1 = CategoryPost::where("level", 1)->where('status', 'active')->where('state', 'noibat')->where('type', 'tin-tuc')->get();
@@ -46,7 +48,8 @@ class AppServiceProvider extends ServiceProvider
                 'categoryServiceLevel1' => $categoryServiceLevel1,
                 'categoryServiceLevel2' => $categoryServiceLevel2,
                 'categoryNewLevel1' => $categoryNewLevel1,
-                'categoryNewLevel2' => $categoryNewLevel2
+                'categoryNewLevel2' => $categoryNewLevel2,
+                'countNewsletter' => $countNewsletter,
             ]
         );
     }

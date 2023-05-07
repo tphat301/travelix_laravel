@@ -175,6 +175,37 @@ $(document).ready(function () {
     }
 
 
+    // Click check add noibat criteria
+    if(isExist($('.show-checkbox-criteria'))) {
+        $('.show-checkbox-criteria').change(function() {
+            let id = $(this).data('id');
+            let show = $(this).data('show');
+            let $this = $(this);
+
+            $.ajax({
+				url: 'http://localhost/travelix_laravel/admin/criteria/state',
+				method: 'POST',
+				dataType: 'html',
+				data: {
+					id: id,
+					show: show,
+                    _token: $("input[name='_token']").val()
+				},
+				success: function()
+				{
+					if($this.is(':checked')) $this.prop('checked',false);
+					else $this.prop('checked',true);
+                    return false;
+				},
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }  
+			});
+        });
+    }
+
+
     // Click check add noibat category service
     if(isExist($('.show-checkbox-catservice'))) {
         $('.show-checkbox-catservice').change(function() {
@@ -276,6 +307,35 @@ $(document).ready(function () {
 
             $.ajax({
 				url: 'http://localhost/travelix_laravel/admin/service/remove_state',
+				method: 'POST',
+				dataType: 'html',
+				data: {
+					id: id,
+                    _token: $("input[name='_token']").val()
+				},
+				success: function()
+				{
+					if($this.is(':checked')) $this.prop('checked',false);
+					else $this.prop('checked',true);
+                    return false;
+				},
+                error: function(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }  
+			});
+        });
+    }
+
+
+    // Click check remove noibat criteria
+    if(isExist($('.remove-checkbox-criteria'))) {
+        $('.remove-checkbox-criteria').change(function() {
+            let id = $(this).data('id');
+            let $this = $(this);
+
+            $.ajax({
+				url: 'http://localhost/travelix_laravel/admin/criteria/remove_state',
 				method: 'POST',
 				dataType: 'html',
 				data: {

@@ -1,5 +1,10 @@
 <!-- Header -->
-
+@if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fa fa-exclamation-circle me-2"></i><strong>{{ session('success') }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endif
 <header class="header">
 
     <!-- Top Bar -->

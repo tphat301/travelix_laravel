@@ -59,6 +59,16 @@
                 </div>
             </div>
 
+            {{-- Module CRITERIA --}}
+            <div class="nav-item dropdown">
+                <a href="{ url('admin/criteria/index') }}" class="nav-link {{ session('module_active') == 'criteria' ? 'active' : '' }} dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Nhận xét</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{{ url('admin/criteria/create') }}" class="dropdown-item">Thêm mới</a>
+                    <a href="{{ url('admin/criteria/index') }}" class="dropdown-item">Danh sách</a>
+                </div>
+            </div>
+            
+
             {{-- Module SERVICE --}}
             <div class="nav-item dropdown">
                 <a href="{ url('admin/service/index') }}" class="nav-link {{ session('module_active') == 'service' ? 'active' : '' }} dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>{{ __('Service') }}</a>
@@ -86,6 +96,16 @@
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="{{ url('admin/slideshow/create') }}" class="dropdown-item">Thêm mới</a>
                     <a href="{{ url('admin/slideshow/index') }}" class="dropdown-item">Danh sách</a>
+                </div>
+            </div>
+
+
+            {{-- Module NEWSLETTER --}}
+            <div class="nav-item dropdown">
+                <a href="{ url('admin/newsletter/index') }}" class="nav-link {{ session('module_active') == 'newsletter' ? 'active' : '' }} dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Đăng ký nhận tin</a>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <a href="{{ url('admin/newsletter/create') }}" class="dropdown-item">Thêm mới</a>
+                    <a href="{{ url('admin/newsletter/index') }}" class="dropdown-item">Danh sách</a>
                 </div>
             </div>
 

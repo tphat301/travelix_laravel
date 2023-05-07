@@ -1526,14 +1526,16 @@ section {
     font-size: 36px;
     font-weight: 700;
     color: #eda84a;
-    line-height: 25px;
+    line-height: 0;
 }
 
+.news_title {font-size: 16px; color: #eda84a;}
+
 .offers_price span {
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: bold;
     color: #929191;
-    margin-left: 12px;
+    margin-left: 0;
 }
 
 .offers_rating {}
@@ -2439,7 +2441,7 @@ section {
     display: block;
     position: fixed;
     cursor: pointer;
-    bottom: 384px;
+    bottom: 185px;
     right: 5px;
     width: 56px;
     height: 56px;
@@ -2646,9 +2648,8 @@ section {
     animation-name: pulse;
 }
 
-
 .btn-order {
-    bottom: 680px;
+    bottom: 460px;
     position: fixed;
     right: 14px;
     z-index: 10;
@@ -2678,15 +2679,15 @@ section {
 }
 
 .btn-zalo {
-    bottom: 620px;
+    bottom: 332px;
 }
 
 .btn-messager {
-    bottom: 545px;
+    bottom: 402px;
 }
 
 .btn-call {
-    bottom: 468px;
+    bottom: 264px;
 }
 
 .text-split {
@@ -3055,6 +3056,41 @@ section {
     width: fit-content;
     margin: auto;
     margin-bottom: 40px;
+}
+
+/* Scale IMG */
+.scale-img {
+    overflow: hidden;
+    display: block;
+}
+
+.news_created {
+    display: block;
+    margin-top: 6px;
+}
+
+.scale-img img {
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+    -moz-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+.scale-img:hover>img {
+    -webkit-transition: 0.3s ease-out;
+    -moz-transition: 0.3s ease-out;
+    -o-transition: 0.3s ease-out;
+    transition: 0.3s ease-out;
+    -moz-transform: scale(1.1, 1.1);
+    -webkit-transform: scale(1.1, 1.1);
+    -o-transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
 }
 
 // sass resources/sass/style.scss public/frontend/css/style.css -w

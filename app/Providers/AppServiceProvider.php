@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\CategoryPost;
 use App\Models\CategoryService;
 use App\Models\Page;
 use App\Models\Photo;
@@ -34,6 +35,8 @@ class AppServiceProvider extends ServiceProvider
         $slideshows = Photo::where('type', 'slideshow')->orderBy('id', 'ASC')->get();
         $categoryServiceLevel1 = CategoryService::where("level", 1)->where('status', 'active')->where('state', 'noibat')->get();
         $categoryServiceLevel2 = CategoryService::where("level", 2)->where('status', 'active')->where('state', 'noibat')->get();
+        $categoryNewLevel1 = CategoryPost::where("level", 1)->where('status', 'active')->where('state', 'noibat')->where('type', 'tin-tuc')->get();
+        $categoryNewLevel2 = CategoryPost::where("level", 2)->where('status', 'active')->where('state', 'noibat')->where('type', 'tin-tuc')->get();
         View::share(
             [
                 'links' => Page::where("type", "link")->where('status', 'active')->orderBy('id', 'ASC')->get(),
@@ -42,6 +45,8 @@ class AppServiceProvider extends ServiceProvider
                 'slideshows' => $slideshows,
                 'categoryServiceLevel1' => $categoryServiceLevel1,
                 'categoryServiceLevel2' => $categoryServiceLevel2,
+                'categoryNewLevel1' => $categoryNewLevel1,
+                'categoryNewLevel2' => $categoryNewLevel2
             ]
         );
     }

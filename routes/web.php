@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\AdminSloganController;
 use App\Http\Controllers\Backend\AdminUserController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\MomoController;
+use App\Http\Controllers\Frontend\NewsController;
 use App\Http\Controllers\Frontend\OrderController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\ServiceController;
@@ -101,11 +102,16 @@ Route::get('/order/momo/checkout', [MomoController::class, 'checkout']);
 
 // SERVICE PAGE
 /* [GET] Route Service Index */
-Route::get('/{slug}', [ServiceController::class, 'index'])->name('service.index');
+Route::get('dich-vu', [ServiceController::class, 'index'])->name('service.index');
 /* [GET] Route Service Show */
-Route::get('/dich-vu/{slug}', [ServiceController::class, 'show'])->name('service.show');
+Route::get('dich-vu/{slug}', [ServiceController::class, 'show'])->name('service.show');
 
 
+// NEWS PAGE
+/* [GET] Route News Index */
+Route::get('tin-tuc', [NewsController::class, 'index'])->name('news.index');
+/* [GET] Route News Show */
+Route::get('tin-tuc/{slug}', [NewsController::class, 'show'])->name('news.show');
 
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

@@ -12,17 +12,17 @@
                             <li class="main_nav_item"><a href="{{ url('/') }}">{{ __('home') }}</a></li>
                             <li class="main_nav_item"><a href="ve-chung-toi">{{ __('about us') }}</a></li>
                             <li class="main_nav_item menu_service">
-                                <a href="{{ url('/dich-vu') }}">{{ __('service') }}</a>
+                                <a href="{{ url('dich-vu') }}">{{ __('service') }}</a>
                                 @if(count($categoryServiceLevel1))
                                     <ul class="category_level1">
                                         @foreach ($categoryServiceLevel1 as $kcat1 => $vcat1)
                                             <li>
-                                                <a href="{{ route('service.index', $vcat1->slug) }}">{{ $vcat1->name }}</a>
+                                                <a href="{{ route('service.show', $vcat1->slug) }}">{{ $vcat1->name }}</a>
                                                 @if(!empty($categoryServiceLevel2))
                                                     <ul class="category_level2">
                                                         @foreach ($categoryServiceLevel2 as $kcat2 => $vcat2)
                                                             @if ($vcat2->parent_id == $vcat1->id)
-                                                                <li><a href="{{ route('service.index', $vcat2->slug) }}">{{ $vcat2->name }}</a></li>
+                                                                <li><a href="{{ route('service.show', $vcat2->slug) }}">{{ $vcat2->name }}</a></li>
                                                             @endif
                                                         @endforeach
                                                     </ul>
@@ -33,7 +33,27 @@
                                 @endif
                             </li>
                             <li class="main_nav_item"><a href="">{{ __('offers') }}</a></li>
-                            <li class="main_nav_item"><a href="">{{ __('news') }}</a></li>
+                            <li class="main_nav_item menu_news">
+                                <a href="{{url('tin-tuc')}}">{{ __('news') }}</a>
+                                @if(count($categoryNewLevel1))
+                                    <ul class="category_news-level1">
+                                        @foreach ($categoryNewLevel1 as $kcat1 => $vcat1)
+                                            <li>
+                                                <a href="{{ route('news.show', $vcat1->slug) }}">{{ $vcat1->name }}</a>
+                                                @if(!empty($categoryNewLevel2))
+                                                    <ul class="category_news-level2">
+                                                        @foreach ($categoryNewLevel2 as $kcat2 => $vcat2)
+                                                            @if ($vcat2->parent_id == $vcat1->id)
+                                                                <li><a href="{{ route('news.show', $vcat2->slug) }}">{{ $vcat2->name }}</a></li>
+                                                            @endif
+                                                        @endforeach
+                                                    </ul>
+                                                @endif
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </li>
                             <li class="main_nav_item"><a href="">{{ __('contact') }}</a></li>
                         </ul>
                     </div>

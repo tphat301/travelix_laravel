@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 07, 2023 lúc 04:49 PM
+-- Thời gian đã tạo: Th5 08, 2023 lúc 05:53 PM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 7.4.33
 
@@ -1127,7 +1127,8 @@ INSERT INTO `pages` (`id`, `name`, `photo1`, `photo2`, `photo3`, `photo4`, `slog
 (7, 'https://twitter.com/', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'link', NULL, NULL, NULL, '2023-05-01 01:44:39', '2023-05-01 01:44:39'),
 (8, 'https://dribbble.com/', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'link', NULL, NULL, NULL, '2023-05-01 01:45:18', '2023-05-01 01:53:52'),
 (9, 'https://www.behance.net/', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'link', NULL, NULL, NULL, '2023-05-01 01:45:23', '2023-05-01 01:54:11'),
-(10, 'https://www.linkedin.com/', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'link', NULL, NULL, NULL, '2023-05-01 01:45:33', '2023-05-01 01:54:32');
+(10, 'https://www.linkedin.com/', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'link', NULL, NULL, NULL, '2023-05-01 01:45:33', '2023-05-01 01:54:32'),
+(11, 'Tiêu đề liên hệ', NULL, NULL, NULL, NULL, NULL, NULL, 'active', 'lien-he', NULL, '<p>abc</p>', NULL, '2023-05-08 08:43:04', '2023-05-08 08:46:11');
 
 -- --------------------------------------------------------
 
@@ -12774,7 +12775,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT cho bảng `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `personal_access_tokens`

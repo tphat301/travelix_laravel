@@ -32,7 +32,6 @@
                                     </ul>
                                 @endif
                             </li>
-                            <li class="main_nav_item"><a href="">{{ __('offers') }}</a></li>
                             <li class="main_nav_item menu_news">
                                 <a href="{{url('tin-tuc')}}">{{ __('news') }}</a>
                                 @if(count($categoryNewLevel1))

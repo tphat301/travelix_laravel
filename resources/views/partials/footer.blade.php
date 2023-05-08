@@ -4,7 +4,7 @@
         <div class="row">
 
             <!-- Footer Column -->
-            <div class="col-lg-3 footer_column">
+            <div class="col-lg-4 footer_column">
                 <div class="footer_col">
                     <div class="footer_content footer_about">
                         <div class="logo_container footer_logo">
@@ -23,44 +23,7 @@
             </div>
 
             <!-- Footer Column -->
-            <div class="col-lg-3 footer_column">
-                <div class="footer_col">
-                    <div class="footer_title">blog posts</div>
-                    <div class="footer_content footer_blog">
-                        
-                        <!-- Footer blog item -->
-                        <div class="footer_blog_item clearfix">
-                            <div class="footer_blog_image"><img src="{{ asset('public/frontend/images/footer_blog_1.jpg') }}" alt="https://unsplash.com/@avidenov"></div>
-                            <div class="footer_blog_content">
-                                <div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
-                                <div class="footer_blog_date">Nov 29, 2017</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Footer blog item -->
-                        <div class="footer_blog_item clearfix">
-                            <div class="footer_blog_image"><img src="{{ asset('public/frontend/images/footer_blog_2.jpg') }}" alt="https://unsplash.com/@deannaritchie"></div>
-                            <div class="footer_blog_content">
-                                <div class="footer_blog_title"><a href="blog.html">New destinations for you</a></div>
-                                <div class="footer_blog_date">Nov 29, 2017</div>
-                            </div>
-                        </div>
-
-                        <!-- Footer blog item -->
-                        <div class="footer_blog_item clearfix">
-                            <div class="footer_blog_image"><img src="{{ asset('public/frontend/images/footer_blog_3.jpg') }}" alt="https://unsplash.com/@bergeryap87"></div>
-                            <div class="footer_blog_content">
-                                <div class="footer_blog_title"><a href="blog.html">Travel with us this year</a></div>
-                                <div class="footer_blog_date">Nov 29, 2017</div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- Footer Column -->
-            <div class="col-lg-3 footer_column">
+            <div class="col-lg-4 footer_column">
                 <div class="footer_col">
                     <div class="footer_title">tags</div>
                     <div class="footer_content footer_tags">
@@ -79,7 +42,7 @@
             </div>
 
             <!-- Footer Column -->
-            <div class="col-lg-3 footer_column">
+            <div class="col-lg-4 footer_column">
                 <div class="footer_col">
                     <div class="footer_title">contact info</div>
                     <div class="footer_content footer_contact">
@@ -113,27 +76,8 @@
 <!-- Copyright -->
 <div class="copyright">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-3 order-lg-1 order-2  ">
-                <div class="copyright_content d-flex flex-row align-items-center">
-                    <div>Copyright &copy;
-                        <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-9 order-lg-2 order-1">
-                <div class="footer_nav_container d-flex flex-row align-items-center justify-content-lg-end">
-                    <div class="footer_nav">
-                        <ul class="footer_nav_list">
-                            <li class="footer_nav_item"><a href="#">home</a></li>
-                            <li class="footer_nav_item"><a href="about.html">about us</a></li>
-                            <li class="footer_nav_item"><a href="offers.html">offers</a></li>
-                            <li class="footer_nav_item"><a href="blog.html">news</a></li>
-                            <li class="footer_nav_item"><a href="contact.html">contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <div class="copyright_content d-flex justify-content-center align-items-center">
+            <div>Copyright &copy; 2023 All rights reserved</div>
         </div>
     </div>
 </div>

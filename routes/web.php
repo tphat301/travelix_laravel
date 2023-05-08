@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\AdminCategoryNewsController;
 use App\Http\Controllers\Backend\AdminCategoryService;
+use App\Http\Controllers\Backend\AdminContactController;
 use App\Http\Controllers\Backend\AdminCouponController;
 use App\Http\Controllers\Backend\AdminCriteriaController;
 use App\Http\Controllers\Backend\AdminLinkController;
@@ -354,6 +355,16 @@ Route::middleware(['auth', 'password.confirm', 'CheckUserLogin'])->group(functio
     Route::get('admin/newsletter/edit/{id}', [AdminNewsletterController::class, 'edit'])->name('admin.newsletter.edit');
     /* [DELETE] delete */
     Route::delete('admin/newsletter/delete/{id}', [AdminNewsletterController::class, 'delete'])->name('admin.newsletter.delete');
+
+    // ROUTE ADMIN CONTACT
+    /* [GET] index */
+    Route::get('admin/contact/index', [AdminContactController::class, 'index']);
+    /* [GET] create */
+    Route::get('admin/contact/create', [AdminContactController::class, 'create']);
+    /* [POST] store */
+    Route::post('admin/contact/store/{id?}', [AdminContactController::class, 'store']);
+    /* [GET] edit */
+    Route::get('admin/contact/edit/{id}', [AdminContactController::class, 'edit'])->name('admin.contact.edit');
 });
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

@@ -13,7 +13,7 @@
         <div class="container">
             <div class="row">
                 <div class="col d-flex flex-row">
-                    <div class="phone">+45 345 3324 56789</div>
+                    <div class="phone">+{{ preg_replace('/[^0-9]/', '', $settingConvert['call']); }}</div>
                     <div class="social">
                         @if(count($links))
                             <ul class="social_list">
@@ -26,8 +26,10 @@
                             </ul>
                         @endif
                     </div>
-                    <div class="user_box ml-auto">
-                        <div class="user_box_login user_box_link"><a href="{{ route('login') }}">{{ __('Log in') }}</a></div>
+                    
+                    <div class="user_box ml-auto d-flex">
+                        <div class="user_box_login user_box_link mr-3"><a href="{{ route('login') }}">{{ __('Log in') }}</a></div>
+                        <div id="translate_select"></div>
                     </div>
                 </div>
             </div>

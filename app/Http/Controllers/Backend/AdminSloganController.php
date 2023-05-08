@@ -26,7 +26,7 @@ class AdminSloganController extends Controller
 
     public function create()
     {
-        if (Page::where('status', 'active')->where('type', 'slogan')->first()) {
+        if (Page::where(['status' => 'active', 'type' => 'slogan'])->first()) {
             return redirect('admin/slogan/index');
         } else {
             return view('admin.slogan.create');
